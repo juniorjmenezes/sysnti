@@ -45,7 +45,6 @@ class ProjetoresController extends Controller
         $ult_projetor = Equipamentos::all()->where('tipo_equipamento', 'PROJETOR')->last();
         //
         $avulsos = Equipamentos::all()->where('tipo_projetor', 'AVULSO');
-        $ult_avulso = Equipamentos::all()->where('tipo_projetor', 'AVULSO')->last();
         $integrados = Equipamentos::all()->where('tipo_projetor', 'INTEGRADO');
         $ult_integrado = Equipamentos::all()->where('tipo_projetor', 'INTEGRADO')->last();
         $secretarias = Secretarias::all()->sortBy('nome');
@@ -68,7 +67,6 @@ class ProjetoresController extends Controller
         $avulsos = Equipamentos::all()->where('tipo_projetor', 'AVULSO');
         $ult_avulso = Equipamentos::all()->where('tipo_projetor', 'AVULSO')->last();
         $integrados = Equipamentos::all()->where('tipo_projetor', 'INTEGRADO');
-        $ult_integrado = Equipamentos::all()->where('tipo_projetor', 'INTEGRADO')->last();
         $secretarias = Secretarias::all()->sortBy('nome');
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');

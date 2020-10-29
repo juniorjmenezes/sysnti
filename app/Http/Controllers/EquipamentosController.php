@@ -37,6 +37,29 @@ class EquipamentosController extends Controller
         return view('adicionar-equipamento', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'secretarias', 'setores', 'users'));
     }
 
+    public function ativos()
+    {
+        $computadores = Equipamentos::all()->where('tipo_equipamento', 'COMPUTADOR');
+        $impressoras = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA');
+        $projetores = Equipamentos::all()->where('tipo_equipamento', 'PROJETOR');
+        $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
+        $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
+        //
+        $ult_ativo = Equipamentos::all()->where('tipo_equipamento', 'COMPUTADOR')->last();
+        //
+        $desktops = Equipamentos::all()->where('tipo_computador', 'DESKTOP');
+        $ult_desktop = Equipamentos::all()->where('tipo_computador', 'DESKTOP')->last();
+        $notebooks = Equipamentos::all()->where('tipo_computador', 'NOTEBOOK');
+        $ult_notebook = Equipamentos::all()->where('tipo_computador', 'NOTEBOOK')->last();
+        $servidores = Equipamentos::all()->where('tipo_computador', 'SERVIDOR');
+        $ult_servidor = Equipamentos::all()->where('tipo_computador', 'SERVIDOR')->last();
+        $secretarias = Secretarias::all()->sortBy('nome');
+        $setores = Setores::all()->sortBy('nome');
+        $users = User::all()->sortBy('id');
+
+        return view('notebooks', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ult_computador', 'desktops', 'ult_desktop', 'notebooks', 'servidores', 'ult_servidor', 'secretarias', 'setores', 'users'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

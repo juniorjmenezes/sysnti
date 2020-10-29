@@ -45,7 +45,6 @@ class RoteadoresController extends Controller
         $ult_roteador = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR')->last();
         //
         $com_fio = Equipamentos::all()->where('tipo_roteador', 'COM FIO');
-        $ult_com_fio = Equipamentos::all()->where('tipo_roteador', 'COM FIO')->last();
         $sem_fio = Equipamentos::all()->where('tipo_roteador', 'SEM FIO');
         $ult_sem_fio = Equipamentos::all()->where('tipo_roteador', 'SEM FIO')->last();
         $secretarias = Secretarias::all()->sortBy('nome');
@@ -68,7 +67,6 @@ class RoteadoresController extends Controller
         $com_fio = Equipamentos::all()->where('tipo_roteador', 'COM FIO');
         $ult_com_fio = Equipamentos::all()->where('tipo_roteador', 'COM FIO')->last();
         $sem_fio = Equipamentos::all()->where('tipo_roteador', 'SEM FIO');
-        $ult_sem_fio = Equipamentos::all()->where('tipo_roteador', 'SEM FIO')->last();
         $secretarias = Secretarias::all()->sortBy('nome');
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');

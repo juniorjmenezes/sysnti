@@ -47,7 +47,6 @@ class ImpressorasController extends Controller
         $ult_impressora = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->last();
         //
         $jato_tinta = Equipamentos::all()->where('tipo_impressora', 'JATO DE TINTA');
-        $ult_jato_tinta = Equipamentos::all()->where('tipo_impressora', 'JATO DE TINTA')->last();
         $laser = Equipamentos::all()->where('tipo_impressora', 'LASER');
         $ult_laser = Equipamentos::all()->where('tipo_impressora', 'LASER')->last();
         $outras_impressoras = Equipamentos::all()->where('tipo_impressora', 'DUPLICADOR', 'MATRICIAL');
@@ -72,7 +71,6 @@ class ImpressorasController extends Controller
         $jato_tinta = Equipamentos::all()->where('tipo_impressora', 'JATO DE TINTA');
         $ult_jato_tinta = Equipamentos::all()->where('tipo_impressora', 'JATO DE TINTA')->last();
         $laser = Equipamentos::all()->where('tipo_impressora', 'LASER');
-        $ult_laser = Equipamentos::all()->where('tipo_impressora', 'LASER')->last();
         $outras_impressoras = Equipamentos::all()->where('tipo_impressora', 'DUPLICADOR', 'MATRICIAL');
         $ult_outras_impressoras = Equipamentos::all()->where('tipo_impressora', 'DUPLICADOR', 'MATRICIAL')->last();
         $secretarias = Secretarias::all()->sortBy('nome');
@@ -97,7 +95,6 @@ class ImpressorasController extends Controller
         $laser = Equipamentos::all()->where('tipo_impressora', 'LASER');
         $ult_laser = Equipamentos::all()->where('tipo_impressora', 'LASER')->last();
         $outras_impressoras = Equipamentos::all()->where('tipo_impressora', 'DUPLICADOR', 'MATRICIAL');
-        $ult_outras_impressoras = Equipamentos::all()->where('tipo_impressora', 'DUPLICADOR', 'MATRICIAL')->last();
         $secretarias = Secretarias::all()->sortBy('nome');
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');

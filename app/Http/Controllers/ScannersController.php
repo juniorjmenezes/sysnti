@@ -47,7 +47,6 @@ class ScannersController extends Controller
         $ult_scanner = Equipamentos::all()->where('tipo_equipamento', 'SCANNER')->last();
         //
         $horizontais = Equipamentos::all()->where('tipo_projetor', 'AVULSO');
-        $ult_horizontal = Equipamentos::all()->where('tipo_projetor', 'AVULSO')->last();
         $portateis = Equipamentos::all()->where('tipo_projetor', 'INTEGRADO');
         $ult_portatil = Equipamentos::all()->where('tipo_projetor', 'INTEGRADO')->last();
         $verticais = Equipamentos::all()->where('tipo_projetor', 'INTEGRADO');
@@ -73,7 +72,6 @@ class ScannersController extends Controller
         $horizontais = Equipamentos::all()->where('tipo_projetor', 'AVULSO');
         $ult_horizontal = Equipamentos::all()->where('tipo_projetor', 'AVULSO')->last();
         $portateis = Equipamentos::all()->where('tipo_projetor', 'INTEGRADO');
-        $ult_portatil = Equipamentos::all()->where('tipo_projetor', 'INTEGRADO')->last();
         $verticais = Equipamentos::all()->where('tipo_projetor', 'INTEGRADO');
         $ult_vertical = Equipamentos::all()->where('tipo_projetor', 'INTEGRADO')->last();
         //
@@ -99,7 +97,6 @@ class ScannersController extends Controller
         $portateis = Equipamentos::all()->where('tipo_projetor', 'INTEGRADO');
         $ult_portatil = Equipamentos::all()->where('tipo_projetor', 'INTEGRADO')->last();
         $verticais = Equipamentos::all()->where('tipo_projetor', 'INTEGRADO');
-        $ult_vertical = Equipamentos::all()->where('tipo_projetor', 'INTEGRADO')->last();
         //
         $secretarias = Secretarias::all()->sortBy('nome');
         $setores = Setores::all()->sortBy('nome');

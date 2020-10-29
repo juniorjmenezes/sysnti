@@ -47,7 +47,6 @@ class ComputadoresController extends Controller
         $ult_computador = Equipamentos::all()->where('tipo_equipamento', 'COMPUTADOR')->last();
         //
         $desktops = Equipamentos::all()->where('tipo_computador', 'DESKTOP');
-        $ult_desktop = Equipamentos::all()->where('tipo_computador', 'DESKTOP')->last();
         $notebooks = Equipamentos::all()->where('tipo_computador', 'NOTEBOOK');
         $ult_notebook = Equipamentos::all()->where('tipo_computador', 'NOTEBOOK')->last();
         $servidores = Equipamentos::all()->where('tipo_computador', 'SERVIDOR');
@@ -72,7 +71,6 @@ class ComputadoresController extends Controller
         $desktops = Equipamentos::all()->where('tipo_computador', 'DESKTOP');
         $ult_desktop = Equipamentos::all()->where('tipo_computador', 'DESKTOP')->last();
         $notebooks = Equipamentos::all()->where('tipo_computador', 'NOTEBOOK');
-        $ult_notebook = Equipamentos::all()->where('tipo_computador', 'NOTEBOOK')->last();
         $servidores = Equipamentos::all()->where('tipo_computador', 'SERVIDOR');
         $ult_servidor = Equipamentos::all()->where('tipo_computador', 'SERVIDOR')->last();
         $secretarias = Secretarias::all()->sortBy('nome');
@@ -97,7 +95,6 @@ class ComputadoresController extends Controller
         $notebooks = Equipamentos::all()->where('tipo_computador', 'NOTEBOOK');
         $ult_notebook = Equipamentos::all()->where('tipo_computador', 'NOTEBOOK')->last();
         $servidores = Equipamentos::all()->where('tipo_computador', 'SERVIDOR');
-        $ult_servidor = Equipamentos::all()->where('tipo_computador', 'SERVIDOR')->last();
         $secretarias = Secretarias::all()->sortBy('nome');
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
