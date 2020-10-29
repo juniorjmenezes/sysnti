@@ -1,0 +1,12 @@
+.adicionar-equipamento input,
+.adicionar-secretaria input {
+    border-radius: 0 !important;
+}
+.adicionar-equipamento div.bootstrap-touchspin button.btn,
+.adicionar-secretaria div.bootstrap-touchspin button.btn {
+    border-radius: 0 !important;
+}
+
+.listar-secretarias input {
+    border-radius: 0 !important;
+}
