@@ -5,11 +5,9 @@
             <!-- ============================================================== -->
             <!-- Start right Content here -->
             <!-- ============================================================== -->
-            <div class="main-content addEquipment">
-
+            <div class="main-content adicionar-setor">
                 <div class="page-content">
                     <div class="container-fluid">
-
                         <!-- start page title -->
                         <div class="row">
                             <div class="col-12">
@@ -38,7 +36,7 @@
                                             @csrf
                                             <div class="form-group row">
                                                 <label class="col-md-2 col-form-label">Secretaria</label>
-                                                <div class="col-md-6">
+                                                <div class="col-md-10">
                                                     <div class="chosen-select-act fm-cmp-mg">
                                                         <select class="chosen form-control" name="id_secretaria">
                                                             <option disabled value="" selected>SELECIONE...</option>
@@ -55,13 +53,13 @@
                                             </div>
                                             <div class="form-group row">
                                                 <label for="example-text-input" class="col-md-2 col-form-label">Nome do Setor</label>
-                                                <div class="col-md-6">
+                                                <div class="col-md-10">
                                                     <input class="form-control" name="nome" type="text" value="">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="example-text-input" class="col-md-2 col-form-label">Gestor</label>
-                                                <div class="col-md-6">
+                                                <div class="col-md-10">
                                                     <input class="form-control" name="gestor" type="text" value="">
                                                 </div>
                                             </div>
@@ -435,7 +433,7 @@
         <!-- form advanced init -->
         <script src="<?= asset('assets/js/pages/form-advanced.init.js'); ?>"></script>
         <script src="<?= asset('assets/libs/alertifyjs/build/alertify.js'); ?>"></script>
-        <script src="<?= asset('assets/js/pages/adicionar-setor/script.js'); ?>"></script>
+        <script src="<?= asset('assets/js/pages/chosen.js'); ?>"></script>
         @if (session('mensagem'))
         <script>
             function alertas() {

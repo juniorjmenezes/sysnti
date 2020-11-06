@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 use DateTime;
 //Models
 use App\Models\Equipamentos;
+use App\Models\Perifericos;
 use App\Models\Secretarias;
 use App\Models\Setores;
 use App\Models\User;
 
-class SetoresController extends Controller
+class PerifericosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +35,7 @@ class SetoresController extends Controller
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('adicionar-setor', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'secretarias', 'setores', 'users'));
+        return view('adicionar-periferico', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'secretarias', 'setores', 'users'));
     }
 
     /**
@@ -56,15 +57,41 @@ class SetoresController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nome'=>'required',
             'id_secretaria'=>'required',
+            'id_setor'=>'required',
+            'status'=>'required',
+            'tipo_periferico'=>'required',
+            'marca'=>'required',
+            'modelo'=>'required',
         ]);
 
         $requestData = $request->all();
 
-        Setores::create($requestData);
+        $data = $requestData['data_cadastro'];
+        if($data)
+        {
+            $requestData['data_cadastro'] = DateTime::createFromFormat('d/m/Y', $data)->format('Y-m-d');
+        }
 
-        return redirect ('adicionar-setor')->with('mensagem', 'SETOR CADASTRADO COM SUCESSO!');
+        Perifericos::create($requestData);
+
+        return redirect ('adicionar-periferico')->with('mensagem', 'PERIFÉRICO CADASTRADO COM SUCESSO!');
+    }
+
+    public function perifericos(Request $request)
+    {
+
+        $id = $request->input('id_periferico');
+
+        $this->validate($request, [
+            'id_equipamento'=>'required',
+        ]);
+
+        $requestData = $request->all();
+        $periferico = Perifericos::findOrFail($id);
+        $periferico->update($requestData);
+
+        return redirect()->back()->with('mensagem', 'Periférico adicionado com sucesso!');
     }
 
     /**

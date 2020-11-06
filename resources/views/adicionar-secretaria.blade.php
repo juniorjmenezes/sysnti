@@ -37,13 +37,13 @@
                                         @csrf
                                             <div class="form-group row">
                                                 <label for="example-text-input" class="col-md-2 col-form-label">Nome/Sigla</label>
-                                                <div class="col-md-6">
+                                                <div class="col-md-10">
                                                     <input class="form-control" name="nome" type="text" value="">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="example-text-input" class="col-md-2 col-form-label">Gestor</label>
-                                                <div class="col-md-6">
+                                                <div class="col-md-10">
                                                     <input class="form-control" name="gestor" type="text" value="">
                                                 </div>
                                             </div>
@@ -414,7 +414,6 @@
         <script src="<?= asset('assets/libs/inputmask/min/jquery.inputmask.bundle.min.js'); ?>"></script>
         <!-- form mask init -->
         <script src="<?= asset('assets/js/pages/form-mask.init.js'); ?>"></script>
-        <!-- form advanced init -->
         <script src="<?= asset('assets/libs/alertifyjs/build/alertify.js'); ?>"></script>
         @if (session('mensagem'))
         <script>

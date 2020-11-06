@@ -23,6 +23,11 @@ class ProjetoresController extends Controller
         $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
         $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
         //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
         $avulsos = Equipamentos::all()->where('tipo_projetor', 'AVULSO');
         $ult_avulso = Equipamentos::all()->where('tipo_projetor', 'AVULSO')->last();
         $integrados = Equipamentos::all()->where('tipo_projetor', 'INTEGRADO');
@@ -31,7 +36,7 @@ class ProjetoresController extends Controller
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('projetores', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'avulsos', 'ult_avulso', 'integrados', 'ult_integrado', 'secretarias', 'setores', 'users'));
+        return view('projetores', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'avulsos', 'ult_avulso', 'integrados', 'ult_integrado', 'secretarias', 'setores', 'users'));
     }
 
     public function avulsos()
@@ -42,6 +47,11 @@ class ProjetoresController extends Controller
         $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
         $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
         //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
         $ult_projetor = Equipamentos::all()->where('tipo_equipamento', 'PROJETOR')->last();
         //
         $avulsos = Equipamentos::all()->where('tipo_projetor', 'AVULSO');
@@ -51,7 +61,7 @@ class ProjetoresController extends Controller
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('avulsos', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'avulsos', 'integrados', 'ult_integrado', 'secretarias', 'setores', 'users'));
+        return view('avulsos', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'avulsos', 'integrados', 'ult_integrado', 'secretarias', 'setores', 'users'));
     }
 
     public function integrados()
@@ -62,6 +72,11 @@ class ProjetoresController extends Controller
         $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
         $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
         //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
         $ult_projetor = Equipamentos::all()->where('tipo_equipamento', 'PROJETOR')->last();
         //
         $avulsos = Equipamentos::all()->where('tipo_projetor', 'AVULSO');
@@ -71,7 +86,7 @@ class ProjetoresController extends Controller
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('integrados', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ult_projetor', 'avulsos', 'ult_avulso', 'integrados', 'secretarias', 'setores', 'users'));
+        return view('integrados', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'ult_projetor', 'avulsos', 'ult_avulso', 'integrados', 'secretarias', 'setores', 'users'));
     }
 
     /**

@@ -19,7 +19,7 @@
             i(e).TouchSpin(n)
         }), i("input[name='discos']").TouchSpin({
             min: 1,
-            max: 3,
+            max: 2,
             buttondown_class: "btn btn-primary",
             buttonup_class: "btn btn-primary"
         }), i("input[name='cartuchos']").TouchSpin({

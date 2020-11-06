@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //Models
 use App\Models\Equipamentos;
+use App\Models\Perifericos;
 use App\Models\Secretarias;
 use App\Models\Setores;
 use App\Models\User;
@@ -23,6 +24,11 @@ class ComputadoresController extends Controller
         $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
         $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
         //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
         $desktops = Equipamentos::all()->where('tipo_computador', 'DESKTOP');
         $ult_desktop = Equipamentos::all()->where('tipo_computador', 'DESKTOP')->last();
         $notebooks = Equipamentos::all()->where('tipo_computador', 'NOTEBOOK');
@@ -33,7 +39,7 @@ class ComputadoresController extends Controller
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('computadores', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'desktops', 'ult_desktop', 'notebooks', 'ult_notebook','servidores', 'ult_servidor', 'secretarias', 'setores', 'users'));
+        return view('computadores', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'desktops', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'ult_desktop', 'notebooks', 'ult_notebook','servidores', 'ult_servidor', 'secretarias', 'setores', 'users'));
     }
 
     public function desktops()
@@ -44,6 +50,11 @@ class ComputadoresController extends Controller
         $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
         $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
         //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
         $ult_computador = Equipamentos::all()->where('tipo_equipamento', 'COMPUTADOR')->last();
         //
         $desktops = Equipamentos::all()->where('tipo_computador', 'DESKTOP');
@@ -55,7 +66,7 @@ class ComputadoresController extends Controller
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('desktops', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ult_computador', 'desktops', 'notebooks', 'ult_notebook','servidores', 'ult_servidor', 'secretarias', 'setores', 'users'));
+        return view('desktops', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ult_computador', 'desktops', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'notebooks', 'ult_notebook','servidores', 'ult_servidor', 'secretarias', 'setores', 'users'));
     }
 
     public function notebooks()
@@ -66,6 +77,11 @@ class ComputadoresController extends Controller
         $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
         $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
         //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
         $ult_computador = Equipamentos::all()->where('tipo_equipamento', 'COMPUTADOR')->last();
         //
         $desktops = Equipamentos::all()->where('tipo_computador', 'DESKTOP');
@@ -77,7 +93,7 @@ class ComputadoresController extends Controller
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('notebooks', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ult_computador', 'desktops', 'ult_desktop', 'notebooks', 'servidores', 'ult_servidor', 'secretarias', 'setores', 'users'));
+        return view('notebooks', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ult_computador', 'desktops',  'ativos', 'inserviveis', 'manutencao', 'remanejados', 'ult_desktop', 'notebooks', 'servidores', 'ult_servidor', 'secretarias', 'setores', 'users'));
     }
 
     public function servidores()
@@ -87,6 +103,11 @@ class ComputadoresController extends Controller
         $projetores = Equipamentos::all()->where('tipo_equipamento', 'PROJETOR');
         $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
         $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
+        //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
         //
         $ult_computador = Equipamentos::all()->where('tipo_equipamento', 'COMPUTADOR')->last();
         //
@@ -99,7 +120,7 @@ class ComputadoresController extends Controller
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('servidores', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ult_computador', 'desktops', 'ult_desktop', 'notebooks', 'ult_notebook','servidores', 'secretarias', 'setores', 'users'));
+        return view('servidores', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ult_computador', 'desktops', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'ult_desktop', 'notebooks', 'ult_notebook','servidores', 'secretarias', 'setores', 'users'));
     }
 
     /**
@@ -129,9 +150,25 @@ class ComputadoresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        return view ('detalhes-computador');
+        $computador = Equipamentos::findOrFail($id);
+        // Exibir contadores no Menu Equipamentos > Por Tipo
+        $computadores = Equipamentos::all()->where('tipo_equipamento', 'COMPUTADOR');
+        $impressoras = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA');
+        $projetores = Equipamentos::all()->where('tipo_equipamento', 'PROJETOR');
+        $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
+        $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
+        // Exibir contadores no Menu Equipamentos > Por Status
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
+        $perifericos = Perifericos::all();
+        $perifericos_computador = Perifericos::all()->where('id_equipamento', $id);
+        //
+        return view ('detalhes-computador', compact('computador','computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'perifericos', 'perifericos_computador'));
     }
 
     /**
@@ -152,6 +189,7 @@ class ComputadoresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
         //

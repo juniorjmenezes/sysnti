@@ -146,7 +146,7 @@
                                                             <i class="mdi mdi-checkbox-blank-circle @php echo $class; @endphp mr-1"></i> {{$computador->status}}
                                                         </td>
                                                         <td>
-                                                        <a href="{{url('computers-details')}}">
+                                                            <a href="{{url("computadores/$computador->id")}}">
                                                             <button type="button" class="btn btn-success btn-sm">D</button>
                                                         </a>
                                                             <button type="button" class="btn btn-warning btn-sm">E</button>

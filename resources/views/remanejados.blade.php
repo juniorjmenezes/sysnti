@@ -12,12 +12,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-flex align-items-center justify-content-between">
-                        <h4 class="mb-0 font-size-18">EQUIPAMENTOS ATIVOS</h4>
+                        <h4 class="mb-0 font-size-18">EQUIPAMENTOS REMANEJADOS</h4>
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">SYSNTI</a></li>
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Inventário</a></li>
-                                <li class="breadcrumb-item active">Ativos</li>
+                                <li class="breadcrumb-item active">Remanejados</li>
                             </ol>
                         </div>
                     </div>
@@ -25,6 +25,27 @@
             </div>
             <!-- end page title -->
             <div class="row">
+                <div class="col-sm-6 col-xl-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h5 class="font-size-14">ATIVOS</h5>
+                                </div>
+                                <div class="avatar-xs">
+                                    <span class="rounded-circle">
+                                        <img style="width: 100%" src="<?= asset('assets/images/icons/ativo.svg'); ?>">
+                                    </span>
+                                </div>
+                            </div>
+                            <h4 class="m-0 align-self-center">{{ $ativos->count()}}</h4>
+                            <p class="mb-0 mt-3 text-muted">Último Patrimônio Inserido: <span class="text-primary">@isset($ult_ativo){{ $ult_ativo->patrimonio }} @endisset</span></p>
+                            <div class="media-footer mt-3">
+                                <a href="{{url('equipamentos-ativos')}}" class="btn btn-info btn-sm waves-effect waves-light">LISTAR</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-sm-6 col-xl-4">
                     <div class="card">
                         <div class="card-body">
@@ -38,8 +59,8 @@
                                     </span>
                                 </div>
                             </div>
-                            <h4 class="m-0 align-self-center">{{$inserviveis->count()}}</h4>
-                            <p class="mb-0 mt-3 text-muted">Último Patrimônio Inserido: <span class="text-primary">@isset($ult_inservivel){{$ult_inservivel->patrimonio }} @endisset</span></p>
+                            <h4 class="m-0 align-self-center">{{ $inserviveis->count()}}</h4>
+                            <p class="mb-0 mt-3 text-muted">Último Patrimônio Inserido: <span class="text-primary">@isset($ult_inservivel){{ $ult_inservivel->patrimonio }} @endisset</span></p>
                             <div class="media-footer mt-3">
                                 <a href="{{url('equipamentos-inserviveis')}}" class="btn btn-info btn-sm waves-effect waves-light">LISTAR</a>
                             </div>
@@ -59,31 +80,10 @@
                                     </span>
                                 </div>
                             </div>
-                            <h4 class="m-0 align-self-center">{{$manutencao->count()}}</h4>
-                            <p class="mb-0 mt-3 text-muted">Último Patrimônio Inserido: <span class="text-primary">@isset($ult_manutencao){{$ult_manutencao->patrimonio }} @endisset</span></p>
+                            <h4 class="m-0 align-self-center">{{ $manutencao->count()}}</h4>
+                            <p class="mb-0 mt-3 text-muted">Último Patrimônio Inserido: <span class="text-primary">@isset($ult_manutencao){{ $ult_manutencao->patrimonio }} @endisset</span></p>
                             <div class="media-footer mt-3">
                                 <a href="{{url('equipamentos-em-manutencao')}}" class="btn btn-info btn-sm waves-effect waves-light">LISTAR</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="media">
-                                <div class="media-body">
-                                    <h5 class="font-size-14">REMANEJADOS</h5>
-                                </div>
-                                <div class="avatar-xs">
-                                    <span class="rounded-circle">
-                                        <img style="width: 100%" src="<?= asset('assets/images/icons/remanejado.svg'); ?>">
-                                    </span>
-                                </div>
-                            </div>
-                            <h4 class="m-0 align-self-center">{{$remanejados->count()}}</h4>
-                            <p class="mb-0 mt-3 text-muted">Último Patrimônio Inserido: <span class="text-primary">@isset($ult_remanejado){{$ult_remanejado->patrimonio }} @endisset</span></p>
-                            <div class="media-footer mt-3">
-                                <a href="{{url('equipamentos-remanejados')}}" class="btn btn-info btn-sm waves-effect waves-light">LISTAR</a>
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                                     <h4 class="header-title mb-0">LISTAGEM POR STATUS</h4>
                                 </div>
                                 <div class="col-md-6">
-                                    <p class="mb-4 text-muted text-right">TOTAL DE ATIVOS: <span class="text-primary">{{$ativos->count()}}</span></p>
+                                    <p class="mb-4 text-muted text-right">TOTAL DE REMANEJADOS: <span class="text-primary">{{$remanejados->count()}}</span></p>
                                 </div>
                             </div>
                             <div class="table-responsive">
@@ -110,57 +110,62 @@
                                             <th scope="col">Série/Patrimônio</th>
                                             <th scope="col">Marca/Modelo</th>
                                             <th scope="col">Setor/Secretaria</th>
+                                            <th scope="col">Origens</th>
                                             <th scope="col">Ações</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($ativos as $ativo)
+                                        @foreach ($inserviveis as $inservivel)
                                         <tr>
                                             <td>
-                                                <p class="mb-1 font-size-12">{{ $ativo->tipo_equipamento}}</p>
-                                                @if($ativo->tipo_computador == 'DESKTOP')
+                                                <p class="mb-1 font-size-12">{{ $inservivel->tipo_equipamento}}</p>
+                                                @if($inservivel->tipo_computador == 'DESKTOP')
                                                     <h5 class="font-size-15 mb-0">DESKTOP</h5>
-                                                @elseif($ativo->tipo_computador == 'NOTEBOOK')
+                                                @elseif($inservivel->tipo_computador == 'NOTEBOOK')
                                                     <h5 class="font-size-15 mb-0">NOTEBOOK</h5>
-                                                @elseif($ativo->tipo_computador == 'SERVIDOR')
+                                                @elseif($inservivel->tipo_computador == 'SERVIDOR')
                                                     <h5 class="font-size-15 mb-0">SERVIDOR</h5>
-                                                @elseif($ativo->tipo_impressora == 'JATO DE TINTA')
+                                                @elseif($inservivel->tipo_impressora == 'JATO DE TINTA')
                                                     <h5 class="font-size-15 mb-0">JATO DE TINTA</h5>
-                                                @elseif($ativo->tipo_impressora == 'JATO DE TINTA')
+                                                @elseif($inservivel->tipo_impressora == 'JATO DE TINTA')
                                                     <h5 class="font-size-15 mb-0">JATO DE TINTA</h5>
-                                                @elseif($ativo->tipo_impressora == 'LASER')
+                                                @elseif($inservivel->tipo_impressora == 'LASER')
                                                     <h5 class="font-size-15 mb-0">LASER</h5>
-                                                @elseif($ativo->tipo_impressora == 'MATRICIAL')
+                                                @elseif($inservivel->tipo_impressora == 'MATRICIAL')
                                                     <h5 class="font-size-15 mb-0">MATRICIAL</h5>
-                                                @elseif($ativo->tipo_impressora == 'DUPLICADOR')
+                                                @elseif($inservivel->tipo_impressora == 'DUPLICADOR')
                                                     <h5 class="font-size-15 mb-0">DUPLICADOR</h5>
-                                                @elseif($ativo->tipo_projetor == 'AVULSO')
+                                                @elseif($inservivel->tipo_projetor == 'AVULSO')
                                                     <h5 class="font-size-15 mb-0">AVULSO</h5>
-                                                @elseif($ativo->tipo_projetor == 'INTEGRADO')
+                                                @elseif($inservivel->tipo_projetor == 'INTEGRADO')
                                                     <h5 class="font-size-15 mb-0">INTEGRADO</h5>
-                                                @elseif($ativo->tipo_roteador == 'COM FIO')
+                                                @elseif($inservivel->tipo_roteador == 'COM FIO')
                                                     <h5 class="font-size-15 mb-0">COM FIO</h5>
-                                                @elseif($ativo->tipo_roteador == 'SEM FIO')
+                                                @elseif($inservivel->tipo_roteador == 'SEM FIO')
                                                     <h5 class="font-size-15 mb-0">SEM FIO</h5>
-                                                @elseif($ativo->tipo_scanner == 'HORIZONTAL')
+                                                @elseif($inservivel->tipo_scanner == 'HORIZONTAL')
                                                     <h5 class="font-size-15 mb-0">HORIZONTAL</h5>
-                                                @elseif($ativo->tipo_scanner == 'PORTÁTIL')
+                                                @elseif($inservivel->tipo_scanner == 'PORTÁTIL')
                                                     <h5 class="font-size-15 mb-0">PORTÁTIL</h5>
-                                                @elseif($ativo->tipo_scanner == 'VERTICAL')
+                                                @elseif($inservivel->tipo_scanner == 'VERTICAL')
                                                     <h5 class="font-size-15 mb-0">VERTICAL</h5>
                                                 @endif
                                             </td>
                                             <td>
-                                                <p class="mb-1 font-size-12">{{ $ativo->serie}}</p>
-                                                <h5 class="font-size-15 mb-0">{{ $ativo->patrimonio}}</h5>
+                                                <p class="mb-1 font-size-12">{{ $inservivel->serie}}</p>
+                                                <h5 class="font-size-15 mb-0">{{ $inservivel->patrimonio}}</h5>
                                             </td>
                                             <td>
-                                                <p class="mb-1 font-size-12">{{ $ativo->marca}}</p>
-                                                <h5 class="font-size-15 mb-0">{{ $ativo->modelo}}</h5>
+                                                <p class="mb-1 font-size-12">{{ $inservivel->marca}}</p>
+                                                <h5 class="font-size-15 mb-0">{{ $inservivel->modelo}}</h5>
                                             </td>
                                             <td>
-                                                <p class="mb-1 font-size-12">{{ $ativo->setor->nome}}</p>
-                                                <h5 class="font-size-15 mb-0">{{ $ativo->secretaria->nome}}</h5>
+                                                <p class="mb-1 font-size-12">{{ $inservivel->setor->nome}}</p>
+                                                <h5 class="font-size-15 mb-0">{{ $inservivel->secretaria->nome}}</h5>
+                                            </td>
+                                            <td>
+                                                <p class="mb-1 font-size-12">{{ $inservivel->setor->nome}}</p>
+                                                <h5 class="font-size-15 mb-0">{{ $inservivel->secretaria->nome}}</h5>
                                             </td>
                                             <td>
                                                 <button type="button" class="btn btn-success btn-sm">D</button>

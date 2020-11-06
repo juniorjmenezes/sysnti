@@ -52,20 +52,37 @@
                                             <div class="tab-pane active" id="alocacao" role="tabpanel">
                                                 <div class="form-group row">
                                                     <div class="col-md-3">
-                                                        <p class="mb-1 font-size-12">SETOR</p>
-                                                        <h5 class="font-size-15 mb-0">ALMOXARIFADO</h5>
+                                                        <p class="mb-1 font-size-12">SECRETARIA</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->secretaria->nome}}</h5>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <p class="mb-1 font-size-12">SECRETARIA</p>
-                                                        <h5 class="font-size-15 mb-0">SEGAD</h5>
+                                                        <p class="mb-1 font-size-12">SETOR</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->setor->nome}}</h5>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <p class="mb-1 font-size-12">PATRIMÔNIO</p>
-                                                        <h5 class="font-size-15 mb-0">25789</h5>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->patrimonio}}</h5>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <p class="mb-1 font-size-12">STATUS</p>
-                                                        <h5 class="font-size-15 mb-0"><i class="mdi mdi-checkbox-blank-circle text-info mr-1"></i> ATIVO/REMANEJADO</h5>
+                                                        @php
+                                                        switch ($computador['status'])
+                                                        {
+                                                            case 'ATIVO':
+                                                                $class = 'text-success';
+                                                            break;
+                                                            case 'REMANEJADO':
+                                                                $class = 'text-primary';
+                                                            break;
+                                                            case 'MANUTENÇÃO':
+                                                                $class = 'text-danger';
+                                                            break;
+                                                            case 'INSERVÍVEL':
+                                                                $class = 'text-danger';
+                                                            break;
+                                                        }
+                                                        @endphp
+                                                        <h5 class="font-size-15 mb-0"><i class="mdi mdi-checkbox-blank-circle @php echo $class @endphp mr-1"></i>{{$computador->status}}</h5>
                                                     </div>
                                                 </div>
                                             </div>
@@ -73,15 +90,15 @@
                                                 <div class="form-group row">
                                                     <div class="col-md-4">
                                                         <p class="mb-1 font-size-12">ADICIONADO POR</p>
-                                                        <h5 class="font-size-15 mb-0">JÚNIOR JONES DE MENEZES</h5>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->tecnico->name}}</h5>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <p class="mb-1 font-size-12">ADICIONADO EM</p>
-                                                        <h5 class="font-size-15 mb-0">13/10/2020 15:01:54</h5>
+                                                        <h5 class="font-size-15 mb-0">{{ date('d/m/Y h:i:s', strtotime($computador->created_at)) }}</h5>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <p class="mb-1 font-size-12">ÚLTIMA ALTERAÇÃO</p>
-                                                        <h5 class="font-size-15 mb-0">13/10/2020 15:18:00</h5>
+                                                        <h5 class="font-size-15 mb-0">{{ date('d/m/Y h:i:s', strtotime($computador->updated_at)) }}</h5>
                                                     </div>
                                                 </div>
                                             </div>
@@ -134,96 +151,299 @@
                                         <div class="tab-content p-3">
                                             <div class="tab-pane active" id="hardware" role="tabpanel">
                                                 <div class="form-group row">
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3">
                                                         <p class="mb-1 font-size-12">TIPO DE COMPUTADOR</p>
-                                                        <h5 class="font-size-15 mb-0">NOTEBOOK</h5>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->tipo_computador}}</h5>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3">
                                                         <p class="mb-1 font-size-12">MARCA</p>
-                                                        <h5 class="font-size-15 mb-0">JAB COMPUTADORES</h5>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->marca}}</h5>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3">
                                                         <p class="mb-1 font-size-12">MODELO</p>
-                                                        <h5 class="font-size-15 mb-0">UDP JAB</h5>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->modelo}}</h5>
                                                     </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3">
                                                         <p class="mb-1 font-size-12">SÉRIE</p>
-                                                        <h5 class="font-size-15 mb-0">ABCD1234</h5>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <p class="mb-1 font-size-12">CPU</p>
-                                                        <h5 class="font-size-15 mb-0">INTEL CORE I3 1151</h5>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <p class="mb-1 font-size-12">MEMÓRIA RAM</p>
-                                                        <h5 class="font-size-15 mb-0">4GB DDR3</h5>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->serie}}</h5>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">CPU</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->cpu}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">MEMÓRIA RAM</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->ram}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
                                                         <p class="mb-1 font-size-12">HD0</p>
-                                                        <h5 class="font-size-15 mb-0">SATA2 1TB</h5>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->hd0}}</h5>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    @if($computador->hd1 != null)
+                                                    <div class="col-md-3">
                                                         <p class="mb-1 font-size-12">HD1</p>
-                                                        <h5 class="font-size-15 mb-0">SATA2 500GB</h5>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->hd1}}</h5>
                                                     </div>
-                                                    <div class="col-md-4">
-                                                        <p class="mb-1 font-size-12">HD2</p>
-                                                        <h5 class="font-size-15 mb-0">SATA2 500GB</h5>
-                                                    </div>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="tab-pane" id="software" role="tabpanel">
                                                 <div class="form-group row">
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-12">
                                                         <p class="mb-1 font-size-12">SISTEMA OPERACIONAL</p>
-                                                        <h5 class="font-size-15 mb-0">MS WINDOWS 10 PRO</h5>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->so}}</h5>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="tab-pane" id="perifericos" role="tabpanel">
-                                                <p class="mb-0">
-                                                    Etsy mixtape wayfarers, ethical wes anderson tofu before they
-                                                    sold out mcsweeney's organic lomo retro fanny pack lo-fi
-                                                    farm-to-table readymade. Messenger bag gentrify pitchfork
-                                                    tattooed craft beer, iphone skateboard locavore carles etsy
-                                                    salvia banksy hoodie helvetica. DIY synth PBR banksy irony.
-                                                    Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh
-                                                    mi whatever gluten-free.
-                                                </p>
+                                                <form name="InserirPeriferico" id="InserirPeriferico" method="POST"
+                                                action="{{url("inserir-periferico")}}">
+                                                <input type="hidden" name="id_equipamento" value="@php echo $computador->id; @endphp">
+                                                @csrf
+                                                    <div class="form-group row">
+                                                        <div class="col-md-4">
+                                                            <div class="chosen-select-act fm-cmp-mg">
+                                                                <select class="chosen form-control" name="id_periferico">
+                                                                    <option disabled value="" selected>SELECIONE O PERIFÉRICO...</option>
+                                                                    @foreach($perifericos as $periferico)
+                                                                    <option value="{{$periferico->id}}">{{$periferico->patrimonio}}/{{$periferico->tipo_periferico}}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <button type="submit" class="btn btn-primary mt-5 mt-sm-0">INSERIR</button>
+                                                        </div>
+                                                        <label class="col-md-2 col-form-label">Buscar Periférico</label>
+                                                        <div class="col-md-4">
+                                                            <input class="form-control global_filter" id="global_filter" type="text">
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <div class="form-group row">
+                                                    <div class="col-md-12">
+                                                        <div class="table-responsive">
+                                                            <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th scope="col">Tipo</th>
+                                                                        <th scope="col">Série/Patrimônio</th>
+                                                                        <th scope="col">Marca/Modelo</th>
+                                                                        <th scope="col">Secretaria/Setor</th>
+                                                                        <th scope="col">Status</th>
+                                                                        <th scope="col">Ações</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    @foreach ($perifericos_computador as $pc)
+                                                                    <tr>
+                                                                        <td>{{$pc->tipo_periferico}}</td>
+                                                                        <td>
+                                                                            <p class="mb-1 font-size-12">{{$pc->serie}}</p>
+                                                                            <h5 class="font-size-15 mb-0">{{$pc->patrimonio}}</h5>
+                                                                        </td>
+                                                                        <td>
+                                                                            <p class="mb-1 font-size-12">{{$pc->marca}}</p>
+                                                                            <h5 class="font-size-15 mb-0">{{$pc->modelo}}</h5>
+                                                                        </td>
+                                                                        <td>
+                                                                            <p class="mb-1 font-size-12">{{$pc->secretaria->nome}}</p>
+                                                                            <h5 class="font-size-15 mb-0">{{$pc->setor->nome}}</h5>
+                                                                        </td>
+                                                                        <td>
+                                                                            @php
+                                                                                switch ($pc['status'])
+                                                                                {
+                                                                                    case 'ATIVO':
+                                                                                        $class = 'text-success';
+                                                                                    break;
+                                                                                    case 'REMANEJADO':
+                                                                                        $class = 'text-primary';
+                                                                                    break;
+                                                                                    case 'MANUTENÇÃO':
+                                                                                        $class = 'text-danger';
+                                                                                    break;
+                                                                                    case 'INSERVÍVEL':
+                                                                                        $class = 'text-danger';
+                                                                                    break;
+                                                                                }
+                                                                            @endphp
+                                                                            <i class="mdi mdi-checkbox-blank-circle @php echo $class; @endphp mr-1"></i> {{$pc->status}}
+                                                                        </td>
+                                                                        <td>
+                                                                        <a href="{{url('computers-details')}}">
+                                                                            <button type="button" class="btn btn-success btn-sm">D</button>
+                                                                        </a>
+                                                                            <button type="button" class="btn btn-warning btn-sm">E</button>
+                                                                            <button type="button" class="btn btn-danger btn-sm">X</button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    @endforeach
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="tab-pane" id="rede" role="tabpanel">
+                                                @if($computador->tipo_conexao == 'NENHUM')
                                                 <div class="form-group row">
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-12">
                                                         <p class="mb-1 font-size-12">TIPO DE CONEXÃO</p>
-                                                        <h5 class="font-size-15 mb-0">ETHERNET</h5>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->tipo_conexao}}</h5>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                </div>
+                                                @elseif($computador->tipo_conexao == 'ETHERNET' && $computador->enderecamento == 'ESTÁTICO')
+                                                <div class="form-group row">
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">TIPO DE CONEXÃO</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->tipo_conexao}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
                                                         <p class="mb-1 font-size-12">ENDEREÇAMENTO</p>
-                                                        <h5 class="font-size-15 mb-0">ESTÁTICO</h5>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->enderecamento}}</h5>
                                                     </div>
-                                                    <div class="col-md-4">
-                                                        <p class="mb-1 font-size-12">ENDEREÇO IP/MÁSCARA</p>
-                                                        <h5 class="font-size-15 mb-0">192.168.9.2/255.255.255.248</h5>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">ENDEREÇO IP</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->ip}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">MÁSCARA</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->mascara}}</h5>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <div class="col-md-4">
-                                                        <p class="mb-1 font-size-12">HOSTNAME</p>
-                                                        <h5 class="font-size-15 mb-0">EXEMPLO</h5>
+                                                    <div class="col-md-3">
+                                                    <p class="mb-1 font-size-12">HOSTNAME</p>
+                                                    <h5 class="font-size-15 mb-0">{{$computador->hostname}}</h5>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3">
                                                         <p class="mb-1 font-size-12">GRUPO</p>
-                                                        <h5 class="font-size-15 mb-0">WORKGROUP</h5>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->grupo}}</h5>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3">
                                                         <p class="mb-1 font-size-12">ID TEAMVIEWER</p>
-                                                        <h5 class="font-size-15 mb-0">1 452 367 456</h5>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->id_teamviewer}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">ID SUPREMO</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->id_supremo}}</h5>
                                                     </div>
                                                 </div>
+                                                @elseif($computador->tipo_conexao == 'ETHERNET' && $computador->enderecamento == 'DINÂMICO')
+                                                <div class="form-group row">
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">TIPO DE CONEXÃO</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->tipo_conexao}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">ENDEREÇAMENTO</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->enderecamento}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">ENDEREÇO IP</p>
+                                                        <h5 class="font-size-15 mb-0">FORNECIDO POR DHCP</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">MÁSCARA</p>
+                                                        <h5 class="font-size-15 mb-0">FORNECIDO POR DHCP</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-md-3">
+                                                    <p class="mb-1 font-size-12">HOSTNAME</p>
+                                                    <h5 class="font-size-15 mb-0">{{$computador->hostname}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">GRUPO</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->grupo}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">ID TEAMVIEWER</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->id_teamviewer}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">ID SUPREMO</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->id_supremo}}</h5>
+                                                    </div>
+                                                </div>
+                                                @elseif($computador->tipo_conexao == 'WI-FI' && $computador->enderecamento == 'ESTÁTICO')
+                                                <div class="form-group row">
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">TIPO DE CONEXÃO</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->tipo_conexao}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">ENDEREÇAMENTO</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->enderecamento}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">ENDEREÇO IP</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->ip}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">MÁSCARA</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->mascara}}</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-md-3">
+                                                    <p class="mb-1 font-size-12">HOSTNAME</p>
+                                                    <h5 class="font-size-15 mb-0">{{$computador->hostname}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">GRUPO</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->grupo}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">ID TEAMVIEWER</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->id_teamviewer}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">ID SUPREMO</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->id_supremo}}</h5>
+                                                    </div>
+                                                </div>
+                                                @elseif($computador->tipo_conexao == 'WI-FI' && $computador->enderecamento == 'DINÂMICO')
+                                                <div class="form-group row">
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">TIPO DE CONEXÃO</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->tipo_conexao}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">ENDEREÇAMENTO</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->enderecamento}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">ENDEREÇO IP</p>
+                                                        <h5 class="font-size-15 mb-0">FORNECIDO POR DHCP</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">MÁSCARA</p>
+                                                        <h5 class="font-size-15 mb-0">FORNECIDO POR DHCP</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-md-3">
+                                                    <p class="mb-1 font-size-12">HOSTNAME</p>
+                                                    <h5 class="font-size-15 mb-0">{{$computador->hostname}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">GRUPO</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->grupo}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">ID TEAMVIEWER</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->id_teamviewer}}</h5>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <p class="mb-1 font-size-12">ID SUPREMO</p>
+                                                        <h5 class="font-size-15 mb-0">{{$computador->id_supremo}}</h5>
+                                                    </div>
+                                                </div>
+                                                @endif
                                             </div>
                                             <div class="tab-pane" id="servicos" role="tabpanel">
                                                 <p class="mb-0">
@@ -599,6 +819,7 @@
         <script src="<?= asset('assets/libs/node-waves/waves.min.js'); ?>"></script>
         <script src="<?= asset('assets/js/app.js'); ?>"></script>
         <script src="<?= asset('assets/js/chosen.jquery.js'); ?>"></script>
+        <script src="<?= asset('assets/js/pages/chosen.init.js'); ?>"></script>
         <script src="<?= asset('assets/libs/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js'); ?>"></script>
@@ -609,6 +830,17 @@
         <script src="<?= asset('assets/js/pages/form-mask.init.js'); ?>"></script>
         <!-- form advanced init -->
         <script src="<?= asset('assets/js/pages/form-advanced.init.js'); ?>"></script>
+        <!-- Required datatable js -->
+        <script src="<?= asset('assets/libs/datatables.net/js/jquery.dataTables.min.js'); ?>"></script>
+        <script src="<?= asset('assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js'); ?>"></script>
+        <!-- Datatable init js -->
+        <script src="<?= asset('assets/js/pages/datatables.init.js'); ?>"></script>
+        <script>
+            function filterGlobal () {
+            $('#datatable-buttons').table.search(
+                $('#global_filter').val()).draw();
+            };
+        </script>
     </body>
 
 </html>

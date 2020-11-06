@@ -31,10 +31,16 @@ class EquipamentosController extends Controller
         $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
         $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
         //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
         $secretarias = Secretarias::all()->sortBy('nome');
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
-        return view('adicionar-equipamento', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'secretarias', 'setores', 'users'));
+
+        return view('adicionar-equipamento', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'secretarias', 'setores', 'users'));
     }
 
     public function ativos()
@@ -45,19 +51,92 @@ class EquipamentosController extends Controller
         $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
         $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
         //
-        $ult_ativo = Equipamentos::all()->where('tipo_equipamento', 'COMPUTADOR')->last();
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
         //
-        $desktops = Equipamentos::all()->where('tipo_computador', 'DESKTOP');
-        $ult_desktop = Equipamentos::all()->where('tipo_computador', 'DESKTOP')->last();
-        $notebooks = Equipamentos::all()->where('tipo_computador', 'NOTEBOOK');
-        $ult_notebook = Equipamentos::all()->where('tipo_computador', 'NOTEBOOK')->last();
-        $servidores = Equipamentos::all()->where('tipo_computador', 'SERVIDOR');
-        $ult_servidor = Equipamentos::all()->where('tipo_computador', 'SERVIDOR')->last();
+        $ult_inservivel = Equipamentos::all()->where('status', 'INSERVÍVEL')->last();
+        $ult_manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO')->last();
+        $ult_remanejado = Equipamentos::all()->where('status', 'REMANEJADO')->last();
+        //
         $secretarias = Secretarias::all()->sortBy('nome');
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('notebooks', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ult_computador', 'desktops', 'ult_desktop', 'notebooks', 'servidores', 'ult_servidor', 'secretarias', 'setores', 'users'));
+        return view('ativos', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'ult_inservivel', 'ult_manutencao', 'ult_remanejado', 'secretarias', 'setores', 'users'));
+    }
+
+    public function inserviveis()
+    {
+        $computadores = Equipamentos::all()->where('tipo_equipamento', 'COMPUTADOR');
+        $impressoras = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA');
+        $projetores = Equipamentos::all()->where('tipo_equipamento', 'PROJETOR');
+        $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
+        $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
+        //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
+        $ult_ativo = Equipamentos::all()->where('status', 'ATIVO')->last();
+        $ult_manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO')->last();
+        $ult_remanejado = Equipamentos::all()->where('status', 'REMANEJADO')->last();
+        //
+        $secretarias = Secretarias::all()->sortBy('nome');
+        $setores = Setores::all()->sortBy('nome');
+        $users = User::all()->sortBy('id');
+
+        return view('inserviveis', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'ult_ativo', 'ult_manutencao', 'ult_remanejado', 'secretarias', 'setores', 'users'));
+    }
+
+    public function manutencao()
+    {
+        $computadores = Equipamentos::all()->where('tipo_equipamento', 'COMPUTADOR');
+        $impressoras = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA');
+        $projetores = Equipamentos::all()->where('tipo_equipamento', 'PROJETOR');
+        $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
+        $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
+        //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
+        $ult_ativo = Equipamentos::all()->where('status', 'ATIVO')->last();
+        $ult_inservivel = Equipamentos::all()->where('status', 'INSERVÍVEL')->last();
+        $ult_remanejado = Equipamentos::all()->where('status', 'REMANEJADO')->last();
+        //
+        $secretarias = Secretarias::all()->sortBy('nome');
+        $setores = Setores::all()->sortBy('nome');
+        $users = User::all()->sortBy('id');
+
+        return view('manutencao', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'ult_ativo', 'ult_inservivel', 'ult_remanejado', 'secretarias', 'setores', 'users'));
+    }
+
+    public function remanejados()
+    {
+        $computadores = Equipamentos::all()->where('tipo_equipamento', 'COMPUTADOR');
+        $impressoras = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA');
+        $projetores = Equipamentos::all()->where('tipo_equipamento', 'PROJETOR');
+        $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
+        $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
+        //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
+        $ult_ativo = Equipamentos::all()->where('status', 'ATIVO')->last();
+        $ult_inservivel = Equipamentos::all()->where('status', 'INSERVÍVEL')->last();
+        $ult_remanejado = Equipamentos::all()->where('status', 'REMANEJADO')->last();
+        //
+        $secretarias = Secretarias::all()->sortBy('nome');
+        $setores = Setores::all()->sortBy('nome');
+        $users = User::all()->sortBy('id');
+
+        return view('remanejados', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'ult_ativo', 'ult_inservivel', 'ult_remanejado', 'secretarias', 'setores', 'users'));
     }
 
     /**

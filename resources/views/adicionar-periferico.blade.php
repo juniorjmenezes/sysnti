@@ -5,19 +5,19 @@
             <!-- ============================================================== -->
             <!-- Start right Content here -->
             <!-- ============================================================== -->
-            <div class="main-content adicionar-equipamento">
+            <div class="main-content adicionar-periferico">
                 <div class="page-content">
                     <div class="container-fluid">
                         <!-- start page title -->
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                                    <h4 class="mb-0 font-size-18">CADASTRAR NOVO EQUIPAMENTO</h4>
+                                    <h4 class="mb-0 font-size-18">CADASTRAR NOVO PERIFÉRICO</h4>
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Inventário</a></li>
-                                            <li class="breadcrumb-item active">Novo Equipamento</li>
+                                            <li class="breadcrumb-item active">Novo Periférico</li>
                                         </ol>
                                     </div>
 
@@ -25,15 +25,15 @@
                             </div>
                         </div>
                         <!-- end page title -->
-                        <form name="CadastarEquipamento" id="CadastrarEquipamento" method="POST"
-                        action="{{ url('adicionar-equipamento') }}">
+                        <form name="CadastrarPeriferico" id="CadastrarPeriferico" method="POST"
+                        action="{{ url('adicionar-periferico') }}">
                         @csrf
                             <div class="row">
                                 <div class="col-12">
                                     <div class="card">
                                         <div class="card-body">
                                             <h4 class="header-title">DADOS GERAIS</h4>
-                                            <p class="card-title-desc">Insira os dados de Alocação, Patrimônio e dados gerais do Equipamento.</p>
+                                            <p class="card-title-desc">Insira os dados de Alocação, Patrimônio e dados gerais do Periférico.</p>
                                             <div class="form-group row">
                                                 <label class="col-md-2 col-form-label">Secretaria</label>
                                                 <div class="col-md-4">
@@ -85,16 +85,17 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-md-2 col-form-label">Tipo de Equipamento</label>
+                                                <label class="col-md-2 col-form-label">Tipo de Periférico</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select id="tipo_equipamento" class="chosen form-control" name="tipo_equipamento">
+                                                        <select id="tipo_periferico" class="chosen form-control" name="tipo_periferico">
                                                             <option disabled selected>SELECIONE...</option>
-                                                            <option>COMPUTADOR</option>
-                                                            <option>IMPRESSORA</option>
-                                                            <option>PROJETOR</option>
-                                                            <option>ROTEADOR</option>
-                                                            <option>SCANNER</option>
+                                                            <option>AUTOTRANSFORMADOR</option>
+                                                            <option>ESTABILIZADOR</option>
+                                                            <option>NO-BREAK</option>
+                                                            <option>MÓDULO ISOLADOR</option>
+                                                            <option>MONITOR</option>
+                                                            <option>WEBCAM</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -120,137 +121,90 @@
                             </div>
                             <!-- end row -->
                             <!-- Modals -->
-                            @include('modals.adicionar-equipamento-remanejado')
-                            @include('modals.adicionar-equipamento-inservivel')
+                            @include('modals.adicionar-periferico-remanejado')
+                            @include('modals.adicionar-periferico-inservivel')
                             <!-- end Modals -->
-                            <div id="computador" class="row">
+                            <div id="autotransformador" class="row">
                                 <div class="col-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="header-title">COMPUTADOR</h4>
-                                            <p class="card-title-desc">Selecione o tipo de Computador e insira os dados necessários.</p>
+                                            <h4 class="header-title">AUTOTRANSFORMADOR</h4>
+                                            <p class="card-title-desc">Insira os dados necessários.</p>
                                             <div class="form-group row">
-                                                <label class="col-md-2 col-form-label">Tipo de Computador</label>
+                                                <label class="col-md-2 col-form-label">Padrão de Tomadas</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="tipo_computador">
+                                                        <select class="chosen form-control" name="padrao_tomadas_atr">
                                                             <option disabled selected>SELECIONE...</option>
-                                                            <option>DESKTOP</option>
-                                                            <option>NOTEBOOK</option>
-                                                            <option>SERVIDOR</option>
-                                                            <option>OUTRO</option>
+                                                            <option>ANTIGO</option>
+                                                            <option>NBR 14136</option>
+                                                            <option>NEMA</option>
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <label class="col-md-2 col-form-label">Sistema Operacional</label>
+                                                <label class="col-md-2 col-form-label">VA</label>
+                                                <div class="col-md-4">
+                                                    <input class="form-control" name="va_atr" type="text" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end col -->
+                            </div>
+                            <!-- end row -->
+                            <div id="estabilizador" class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="header-title">ESTABILIZADOR</h4>
+                                            <p class="card-title-desc">Insira os dados necessários.</p>
+                                            <div class="form-group row">
+                                                <label class="col-md-2 col-form-label">Padrão de Tomadas</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="so">
+                                                        <select class="chosen form-control" name="padrao_tomadas_est">
                                                             <option disabled selected>SELECIONE...</option>
-                                                            <option>LINUX</option>
-                                                            <option>MS WINDOWS XP PROFESSIONAL</option>
-                                                            <option>MS WINDOWS 7 PROFESSIONAL</option>
-                                                            <option>MS WINDOWS 10 Pro</option>
+                                                            <option>ANTIGO</option>
+                                                            <option>NBR 14136</option>
+                                                            <option>NEMA</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <label class="col-md-2 col-form-label">VA</label>
+                                                <div class="col-md-4">
+                                                    <input class="form-control" name="va_est" type="text" value="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-2 col-form-label">Voltagem Entrada</label>
+                                                <div class="col-md-4">
+                                                    <div class="chosen-select-act fm-cmp-mg">
+                                                        <select class="chosen form-control" name="volt_entrada_est">
+                                                            <option disabled selected>SELECIONE...</option>
+                                                            <option>110V</option>
+                                                            <option>220V</option>
+                                                            <option>BIVOLT</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <label class="col-md-2 col-form-label">Voltagem Saída</label>
+                                                <div class="col-md-4">
+                                                    <div class="chosen-select-act fm-cmp-mg">
+                                                        <select class="chosen form-control" name="volt_saida_est">
+                                                            <option disabled selected>SELECIONE...</option>
+                                                            <option>110V</option>
+                                                            <option>220V</option>
+                                                            <option>BIVOLT</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-md-2 col-form-label">CPU</label>
-                                                <div class="col-md-4">
-                                                    <input class="form-control" name="cpu" type="text" value="">
-                                                </div>
-                                                <label class="col-md-2 col-form-label">Memória RAM</label>
-                                                <div class="col-md-4">
-                                                    <input class="form-control" name="ram" type="text" value="">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-md-2 col-form-label">Quantidade HD(s)</label>
+                                                <label class="col-md-2 col-form-label">Quantidade Tomadas</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
-                                                        <input id="discos" class="form-control" name="discos" type="text" value="1">
-                                                    </div>
-                                                </div>
-                                                <label class="col-md-2 col-form-label">HD0</label>
-                                                <div class="col-md-4">
-                                                    <input class="form-control" name="hd0" type="text" value="">
-                                                </div>
-                                            </div>
-                                            <div id="hd1" class="form-group row">
-                                                <label class="col-md-2 col-form-label">HD1</label>
-                                                <div class="col-md-4">
-                                                    <input class="form-control" name="hd1" type="text" value="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                            </div>
-                            <!-- end row -->
-                            <div id="impressora" class="row">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h4 class="header-title">IMPRESSORA</h4>
-                                            <p class="card-title-desc">Selecione o tipo de Impressora e insira os dados necessários.</p>
-                                            <div class="form-group row">
-                                                <label class="col-md-2 col-form-label">Tipo de Impressora</label>
-                                                <div class="col-md-4">
-                                                    <div class="chosen-select-act fm-cmp-mg">
-                                                        <select id="tipo_impressora" class="chosen form-control" name="tipo_impressora">
-                                                            <option disabled selected>SELECIONE...</option>
-                                                            <option>DUPLICADOR</option>
-                                                            <option>JATO DE TINTA</option>
-                                                            <option>LASER</option>
-                                                            <option>MATRICIAL</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <label class="col-md-2 col-form-label">Tipo de Cartucho</label>
-                                                <div class="col-md-4">
-                                                    <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="tipo_cartucho">
-                                                            <option disabled selected>SELECIONE...</option>
-                                                            <option>FITA</option>
-                                                            <option>TINTA</option>
-                                                            <option>TONER</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-md-2 col-form-label">Quantidade Cartuchos</label>
-                                                <div class="col-md-4">
-                                                    <div class="chosen-select-act fm-cmp-mg">
-                                                        <select id="cartuchos" class="chosen form-control" name="cartuchos">
-                                                            <option disabled selected>SELECIONE...</option>
-                                                            <option>ÚNICO</option>
-                                                            <option>KIT C/ 4</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <label class="col-md-2 col-form-label">Cartucho Preto</label>
-                                                <div class="col-md-4">
-                                                    <input class="form-control" name="preto" type="text" value="">
-                                                </div>
-                                            </div>
-                                            <div id="coloridos">
-                                                <div class="form-group row">
-                                                    <label class="col-md-2 col-form-label">Cartucho Azul</label>
-                                                    <div class="col-md-4">
-                                                        <input class="form-control" name="preto" type="text" value="">
-                                                    </div>
-                                                    <label class="col-md-2 col-form-label">Cartucho Amarelo</label>
-                                                    <div class="col-md-4">
-                                                        <input class="form-control" name="amarelo" type="text" value="">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-md-2 col-form-label">Cartucho Magenta</label>
-                                                    <div class="col-md-4">
-                                                        <input class="form-control" name="magenta" type="text" value="">
+                                                        <input data-toggle="touchspin" type="text" value="1" class="form-control" name="quantidade_tomadas_est">
                                                     </div>
                                                 </div>
                                             </div>
@@ -260,56 +214,64 @@
                                 <!-- end col -->
                             </div>
                             <!-- end row -->
-                            <div id="projetor" class="row">
+                            <div id="nobreak" class="row">
                                 <div class="col-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="header-title">PROJETOR</h4>
-                                            <p class="card-title-desc">Selecione o tipo de Projetor e insira os dados necessários.</p>
+                                            <h4 class="header-title">NO-BREAK</h4>
+                                            <p class="card-title-desc">Insira os dados necessários.</p>
                                             <div class="form-group row">
-                                                <label class="col-md-2 col-form-label">Tipo de Projetor</label>
+                                                <label class="col-md-2 col-form-label">Padrão de Tomadas</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select id="tipo_projetor" class="chosen form-control" name="tipo_projetor">
+                                                        <select class="chosen form-control" name="padrao_tomadas_nbr">
                                                             <option disabled selected>SELECIONE...</option>
-                                                            <option>AVULSO</option>
-                                                            <option>INTEGRADO</option>
+                                                            <option>ANTIGO</option>
+                                                            <option>NBR 14136</option>
+                                                            <option>NEMA</option>
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <label class="col-md-2 col-form-label">Lâmpada</label>
+                                                <label class="col-md-2 col-form-label">VA</label>
                                                 <div class="col-md-4">
-                                                    <input class="form-control" name="lampada" type="text" value="">
+                                                    <input class="form-control" name="va_nbr" type="text" value="">
                                                 </div>
                                             </div>
-                                            <div id="integrado">
-                                                <div class="form-group row">
-                                                    <label class="col-md-2 col-form-label">Sistema Operacional</label>
-                                                    <div class="col-md-4">
-                                                        <div class="chosen-select-act fm-cmp-mg">
-                                                            <select class="chosen form-control" name="so_projetor">
-                                                                <option disabled selected>SELECIONE...</option>
-                                                                <option>LINUX</option>
-                                                                <option>MS WINDOWS XP PROFESSIONAL</option>
-                                                                <option>MS WINDOWS 7 PROFESSIONAL</option>
-                                                                <option>MS WINDOWS 10 PRO</option>
-                                                                <option>NÃO SE APLICA</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <label class="col-md-2 col-form-label">CPU</label>
-                                                    <div class="col-md-4">
-                                                        <input id="cpu_projetor" class="form-control input-mask" name="cpu_projetor" type="text" value="">
+                                            <div class="form-group row">
+                                                <label class="col-md-2 col-form-label">Voltagem Entrada</label>
+                                                <div class="col-md-4">
+                                                    <div class="chosen-select-act fm-cmp-mg">
+                                                        <select class="chosen form-control" name="volt_entrada_nbr">
+                                                            <option disabled selected>SELECIONE...</option>
+                                                            <option>110V</option>
+                                                            <option>220V</option>
+                                                            <option>BIVOLT</option>
+                                                        </select>
                                                     </div>
                                                 </div>
-                                                <div class="form-group row">
-                                                    <label class="col-md-2 col-form-label">Memória RAM</label>
-                                                    <div class="col-md-4">
-                                                        <input class="form-control" name="ram_projetor" type="text" value="">
+                                                <label class="col-md-2 col-form-label">Voltagem Saída</label>
+                                                <div class="col-md-4">
+                                                    <div class="chosen-select-act fm-cmp-mg">
+                                                        <select class="chosen form-control" name="volt_saida_nbr">
+                                                            <option disabled selected>SELECIONE...</option>
+                                                            <option>110V</option>
+                                                            <option>220V</option>
+                                                            <option>BIVOLT</option>
+                                                        </select>
                                                     </div>
-                                                    <label class="col-md-2 col-form-label">HD0</label>
-                                                    <div class="col-md-4">
-                                                        <input class="form-control" name="hd0_projetor" type="text" value="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-2 col-form-label">Quantidade Tomadas</label>
+                                                <div class="col-md-4">
+                                                    <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
+                                                        <input data-toggle="touchspin" type="text" value="1" class="form-control" name="quantidade_tomadas_nbr">
+                                                    </div>
+                                                </div>
+                                                <label class="col-md-2 col-form-label">Quantidade Baterias</label>
+                                                <div class="col-md-4">
+                                                    <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
+                                                        <input data-toggle="touchspin" type="text" value="1" class="form-control" name="quantidade_baterias_nbr">
                                                     </div>
                                                 </div>
                                             </div>
@@ -319,208 +281,159 @@
                                 <!-- end col -->
                             </div>
                             <!-- end row -->
-                            <div id="roteador" class="row">
+                            <div id="modulo_isolador" class="row">
                                 <div class="col-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="header-title">ROTEADOR</h4>
-                                            <p class="card-title-desc">Selecione o tipo de Roteador e insira os dados necessários.</p>
+                                            <h4 class="header-title">MÓDULO ISOLADOR</h4>
+                                            <p class="card-title-desc">Insira os dados necessários.</p>
                                             <div class="form-group row">
-                                                <label class="col-md-2 col-form-label">Tipo de Roteador</label>
+                                                <label class="col-md-2 col-form-label">Padrão de Tomadas</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select id="tipo_roteador" class="chosen form-control" name="tipo_roteador">
+                                                        <select class="chosen form-control" name="padrao_tomadas_mdi">
                                                             <option disabled selected>SELECIONE...</option>
-                                                            <option>COM FIO</option>
-                                                            <option>SEM FIO</option>
+                                                            <option>ANTIGO</option>
+                                                            <option>NBR 14136</option>
+                                                            <option>NEMA</option>
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <label class="col-md-2 col-form-label">Porta Externa</label>
+                                                <label class="col-md-2 col-form-label">VA</label>
                                                 <div class="col-md-4">
-                                                    <input class="form-control" name="porta" type="text" value="">
+                                                    <input class="form-control" name="va_mdi" type="text" value="">
                                                 </div>
                                             </div>
-                                            <div id="sem_fio">
-                                                <div class="form-group row">
-                                                    <label class="col-md-2 col-form-label">Quantidade Antenas</label>
-                                                    <div class="col-md-4">
-                                                        <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
-                                                            <input data-toggle="touchspin" type="text" value="1" class="form-control" name="quantidade_antenas">
-                                                        </div>
-                                                    </div>
-                                                    <label class="col-md-2 col-form-label">SSID</label>
-                                                    <div class="col-md-4">
-                                                        <input class="form-control" name="ssid" type="text" value="">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-md-2 col-form-label">Tipo de Criptografia</label>
-                                                    <div class="col-md-4">
-                                                        <div class="chosen-select-act fm-cmp-mg">
-                                                            <select class="chosen form-control" name="tipo_criptografia">
-                                                                <option disabled selected>SELECIONE...</option>
-                                                                <option>ABERTO</option>
-                                                                <option>WEP</option>
-                                                                <option>WPA-PSK</option>
-                                                                <option>WPA2-PSK</option>
-                                                                <option>WPA/WPA2-PSK</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <label class="col-md-2 col-form-label">Senha da Rede</label>
-                                                    <div class="col-md-4">
-                                                        <input class="form-control" name="senha_rede" type="text" value="">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-md-2 col-form-label">Usuário</label>
-                                                    <div class="col-md-4">
-                                                        <input class="form-control" name="usuario" type="text" value="">
-                                                    </div>
-                                                    <label class="col-md-2 col-form-label">Senha</label>
-                                                    <div class="col-md-4">
-                                                        <input class="form-control" name="senha" type="text" value="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                            </div>
-                            <!-- end row -->
-                            <div id="scanner" class="row">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h4 class="header-title">SCANNER</h4>
-                                            <p class="card-title-desc">Selecione o tipo de Scanner e insira os dados necessários.</p>
                                             <div class="form-group row">
-                                                <label class="col-md-2 col-form-label">Tipo de Scanner</label>
+                                                <label class="col-md-2 col-form-label">Voltagem Entrada</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="tipo_scanner">
+                                                        <select class="chosen form-control" name="volt_entrada_mdi">
                                                             <option disabled selected>SELECIONE...</option>
-                                                            <option>HORIZONTAL</option>
-                                                            <option>PORTÁTIL</option>
-                                                            <option>VERTICAL</option>
+                                                            <option>110V</option>
+                                                            <option>220V</option>
+                                                            <option>BIVOLT</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <label class="col-md-2 col-form-label">Voltagem Saída</label>
+                                                <div class="col-md-4">
+                                                    <div class="chosen-select-act fm-cmp-mg">
+                                                        <select class="chosen form-control" name="volt_saida_mdi">
+                                                            <option disabled selected>SELECIONE...</option>
+                                                            <option>110V</option>
+                                                            <option>220V</option>
+                                                            <option>BIVOLT</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                            </div>
-                            <!-- end row -->
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h4 class="header-title">REDE E CONEXÃO</h4>
-                                            <p class="card-title-desc">Selecione o tipo de Conexão principal (ativo) e insira os dados necessários.</p>
-                                            <div id="ethernet-wifi" class="form-group row">
-                                                <label class="col-md-2 col-form-label">Tipo de Conexão</label>
+                                            <div class="form-group row">
+                                                <label class="col-md-2 col-form-label">Quantidade Tomadas</label>
                                                 <div class="col-md-4">
-                                                    <div class="chosen-select-act fm-cmp-mg">
-                                                        <select id="tipo_conexao" class="chosen form-control" name="tipo_conexao">
-                                                            <option disabled selected>SELECIONE...</option>
-                                                            <option>NENHUM</option>
-                                                            <option>ETHERNET</option>
-                                                            <option>USB</option>
-                                                            <option>WI-FI</option>
-                                                        </select>
+                                                    <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
+                                                        <input data-toggle="touchspin" type="text" value="1" class="form-control" name="quantidade_tomadas_mdi">
                                                     </div>
                                                 </div>
-                                                <label class="col-md-2 col-form-label">Adaptador</label>
+                                                <label class="col-md-2 col-form-label">Estabilizador</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select id="adaptador" class="chosen form-control" name="adaptador">
-                                                            <option disabled selected>UTILIZA ADAPTADOR EXTERNO?</option>
+                                                        <select class="chosen form-control" name="estabilizador_mdi">
+                                                            <option disabled selected>SELECIONE...</option>
                                                             <option>SIM</option>
                                                             <option>NÃO</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div id="conexao">
-                                                <div class="form-group row">
-                                                    <label class="col-md-2 col-form-label">Versão USB</label>
-                                                    <div class="col-md-4">
-                                                        <div class="chosen-select-act fm-cmp-mg">
-                                                            <select id="versao_usb" class="chosen form-control" name="versao_usb">
-                                                                <option disabled selected>SELECIONE...</option>
-                                                                <option>2.0</option>
-                                                                <option>3.0</option>
-                                                                <option>OUTRO</option>
-                                                            </select>
-                                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end col -->
+                            </div>
+                            <!-- end row -->
+                            <div id="monitor" class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="header-title">MONITOR</h4>
+                                            <p class="card-title-desc">Insira os dados necessários.</p>
+                                            <div class="form-group row">
+                                                <label class="col-md-2 col-form-label">Tipo de Tela</label>
+                                                <div class="col-md-4">
+                                                    <div class="chosen-select-act fm-cmp-mg">
+                                                        <select class="chosen form-control" name="tipo_tela_mnt">
+                                                            <option disabled selected>SELECIONE...</option>
+                                                            <option>CRT</option>
+                                                            <option>LCD</option>
+                                                            <option>LED</option>
+                                                            <option>OLED</option>
+                                                        </select>
                                                     </div>
-                                                    <label class="col-md-2 col-form-label">Ethernet</label>
-                                                    <div class="col-md-4">
-                                                        <div class="chosen-select-act fm-cmp-mg">
-                                                            <select id="ethernet" class="chosen form-control" name="ethernet">
-                                                                <option disabled selected>POSSUI PORTA ETHERNET?</option>
-                                                                <option>SIM</option>
-                                                                <option>NÃO</option>
-                                                            </select>
-                                                        </div>
+                                                </div>
+                                                <label class="col-md-2 col-form-label">Tamanho Tela</label>
+                                                <div class="col-md-4">
+                                                    <input class="form-control" name="tamanho_tela_mnt" type="text" value="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-2 col-form-label">Conexões</label>
+                                                <div class="col-md-4">
+                                                    <div class="chosen-select-act fm-cmp-mg">
+                                                        <select class="chosen form-control" name="conexoes_mnt">
+                                                            <option disabled selected>SELECIONE...</option>
+                                                            <option>VGA</option>
+                                                            <option>VGA/DVI</option>
+                                                            <option>VGA/HDMI</option>
+                                                            <option>VGA/HDMI/DVI</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <label class="col-md-2 col-form-label">Padrão de Tomadas</label>
+                                                <div class="col-md-4">
+                                                    <div class="chosen-select-act fm-cmp-mg">
+                                                        <select class="chosen form-control" name="padrao_tomadas_mnt">
+                                                            <option disabled selected>SELECIONE...</option>
+                                                            <option>ANTIGO</option>
+                                                            <option>NBR 14136</option>
+                                                            <option>NEMA</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div id="rede">
-                                                <div class="form-group row">
-                                                    <label class="col-md-2 col-form-label">Endereçamento</label>
-                                                    <div class="col-md-4">
-                                                        <div class="chosen-select-act fm-cmp-mg">
-                                                            <select id="enderecamento" class="chosen form-control" name="enderecamento">
-                                                                <option disabled selected>SELECIONE...</option>
-                                                                <option>DINÂMICO</option>
-                                                                <option>ESTÁTICO</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <label class="col-md-2 col-form-label">Internet</label>
-                                                    <div class="col-md-4">
-                                                        <div class="chosen-select-act fm-cmp-mg">
-                                                            <select id="internet" class="chosen form-control" name="internet">
-                                                                <option disabled selected>SE CONECTA À INTERNET?</option>
-                                                                <option>SIM</option>
-                                                                <option>NÃO</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div id="ip-mascara" class="form-group row">
-                                                    <label class="col-md-2 col-form-label">Endereço IP</label>
-                                                    <div class="col-md-4">
-                                                        <input id="input-ip" class="form-control input-mask" name="ip" data-inputmask="'alias': 'ip'">
-                                                    </div>
-                                                    <label class="col-md-2 col-form-label">Máscara</label>
-                                                    <div class="col-md-4">
-                                                        <input id="input-ip" class="form-control input-mask" name="mascara" data-inputmask="'alias': 'ip'">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end col -->
+                            </div>
+                            <!-- end row -->
+                            <div id="webcam" class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="header-title">WEBCAM</h4>
+                                            <p class="card-title-desc">Insira os dados necessários.</p>
+                                            <div class="form-group row">
+                                                <label class="col-md-2 col-form-label">Resolução</label>
+                                                <div class="col-md-4">
+                                                    <div class="chosen-select-act fm-cmp-mg">
+                                                        <select class="chosen form-control" name="resolucao_wbc">
+                                                            <option disabled selected>SELECIONE...</option>
+                                                            <option>VGA</option>
+                                                            <option>HD</option>
+                                                            <option>FULL HD</option>
+                                                            <option>4K OU SUPERIOR</option>
+                                                        </select>
                                                     </div>
                                                 </div>
-                                                <div class="form-group row">
-                                                    <label class="col-md-2 col-form-label">Hostname</label>
-                                                    <div class="col-md-4">
-                                                        <input class="form-control" name="hostname" type="text" value="">
-                                                    </div>
-                                                    <label class="col-md-2 col-form-label">Grupo</label>
-                                                    <div class="col-md-4">
-                                                        <input class="form-control" name="grupo" type="text" value="">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-md-2 col-form-label">ID TeamViewer</label>
-                                                    <div class="col-md-4">
-                                                        <input class="form-control" name="id_teamviewer" type="text" value="">
-                                                    </div>
-                                                    <label class="col-md-2 col-form-label">ID Supremo</label>
-                                                    <div class="col-md-4">
-                                                        <input class="form-control" name="id_supremo" type="text" value="">
+                                                <label class="col-md-2 col-form-label">Microfone</label>
+                                                <div class="col-md-4">
+                                                    <div class="chosen-select-act fm-cmp-mg">
+                                                        <select class="chosen form-control" name="microfone_wbc">
+                                                            <option disabled selected>SELECIONE...</option>
+                                                            <option>SIM</option>
+                                                            <option>NÃO</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -928,7 +841,7 @@
         <!-- form advanced init -->
         <script src="<?= asset('assets/js/pages/form-advanced.init.js'); ?>"></script>
         <script src="<?= asset('assets/libs/alertifyjs/build/alertify.js'); ?>"></script>
-        <script src="<?= asset('assets/js/pages/adicionar-equipamento.js'); ?>"></script>
+        <script src="<?= asset('assets/js/pages/adicionar-periferico.js'); ?>"></script>
         @if (session('mensagem'))
         <script>
             function alertas() {

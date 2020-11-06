@@ -16,7 +16,7 @@ class CreateEquipamentos extends Migration
         Schema::create('equipamentos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('id_user')->unsigned();
-            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_user')->references('id')->on('users');
             $table->bigInteger('id_secretaria')->unsigned();
             $table->foreign('id_secretaria')->references('id')->on('secretarias')->onDelete('cascade')->onUpdate('cascade');
             $table->bigInteger('id_setor')->unsigned();
@@ -27,6 +27,10 @@ class CreateEquipamentos extends Migration
             $table->foreign('id_setor_origem')->references('id')->on('setores')->onDelete('cascade')->onUpdate('cascade');
             $table->date('data_remanejo')->nullable();
             $table->string('tipo_remanejo')->nullable();
+            $table->string('motivo')->nullable();
+            $table->date('data_inservivel')->nullable();
+            $table->string('leilao')->nullable();
+            $table->longText('mais_detalhes')->nullable();
             $table->string('patrimonio')->nullable();
             $table->string('status');
             $table->string('tipo_equipamento');
@@ -40,7 +44,6 @@ class CreateEquipamentos extends Migration
             $table->string('discos')->nullable();
             $table->string('hd0')->nullable();
             $table->string('hd1')->nullable();
-            $table->string('hd2')->nullable();
             $table->string('tipo_impressora')->nullable();
             $table->string('tipo_cartucho')->nullable();
             $table->string('cartuchos')->nullable();
@@ -69,6 +72,8 @@ class CreateEquipamentos extends Migration
             $table->string('ethernet')->nullable();
             $table->string('enderecamento')->nullable();
             $table->string('internet')->nullable();
+            $table->string('ip')->nullable();
+            $table->string('mascara')->nullable();
             $table->string('hostname')->nullable();
             $table->string('grupo')->nullable();
             $table->string('id_teamviewer')->nullable();

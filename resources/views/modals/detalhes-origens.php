@@ -1,8 +1,8 @@
-<div class="modal fade" id="remanejo" tabindex="-1" role="dialog" aria-labelledby="remanejoModal" aria-hidden="true">
+<div class="modal fade" id="remanejo" tabindex="-1" role="dialog" aria-labelledby="detalhesOrigens" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title mt-0" id="remanejoModal">DETALHES DO REMANEJAMENTO</h5>
+                <h5 class="modal-title mt-0" id="detalhesOrigens">DETALHES DO REMANEJAMENTO</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

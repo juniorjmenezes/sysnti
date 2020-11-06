@@ -45,14 +45,20 @@ $(document).ready(function() {
     }
     });
 
-    // Se Remanejado identificar origem
-    $('#origem').hide();
-    $('#status').change(function() {
-    if ($('#status').val() == 'REMANEJADO') {
-        $('#origem').show();
-    } else {
-        $('#origem').hide();
-    }
+    // Se Remanejado, identificar origem
+    $('#status').change(function() { //jQuery Change Function
+        var opval = $(this).val(); //Get value from select element
+        if(opval=="REMANEJADO"){ //Compare it and if true
+            $('#adicionarRemanejado').modal("show"); //Open Modal
+        }
+    });
+
+    // Se Inservível, informar detalhes
+    $('#status').change(function() { //jQuery Change Function
+        var opval = $(this).val(); //Get value from select element
+        if(opval=="INSERVÍVEL"){ //Compare it and if true
+            $('#adicionarInservivel').modal("show"); //Open Modal
+        }
     });
 
     // Desktops (Discos adicionais)
@@ -63,15 +69,6 @@ $(document).ready(function() {
         $('#hd1').show();
     } else {
         $('#hd1').hide();
-    }
-    });
-
-    $('#hd1-hd2').hide();
-    $('#discos').change(function() {
-    if ($('#discos').val() == '3') {
-        $('#hd1-hd2').show();
-    } else {
-        $('#hd1-hd2').hide();
     }
     });
 

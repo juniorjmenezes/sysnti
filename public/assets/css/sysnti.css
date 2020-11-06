@@ -1,12 +1,13 @@
 .adicionar-equipamento input,
-.adicionar-secretaria input {
-    border-radius: 0 !important;
-}
+.adicionar-periferico input,
+.adicionar-equipamento textarea,
+.adicionar-periferico textarea,
+.adicionar-secretaria input,
+.adicionar-setor input,
 .adicionar-equipamento div.bootstrap-touchspin button.btn,
-.adicionar-secretaria div.bootstrap-touchspin button.btn {
-    border-radius: 0 !important;
-}
-
+.adicionar-periferico div.bootstrap-touchspin button.btn,
+.adicionar-equipamento span.input-group-text,
+.adicionar-periferico span.input-group-text,
 .listar-secretarias input {
     border-radius: 0 !important;
 }

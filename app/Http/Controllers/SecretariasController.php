@@ -1,8 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Secretarias;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use DateTime;
+//Models
+use App\Models\Equipamentos;
+use App\Models\Secretarias;
+use App\Models\Setores;
+use App\Models\User;
 
 class SecretariasController extends Controller
 {
@@ -13,8 +19,22 @@ class SecretariasController extends Controller
      */
     public function index()
     {
+        $computadores = Equipamentos::all()->where('tipo_equipamento', 'COMPUTADOR');
+        $impressoras = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA');
+        $projetores = Equipamentos::all()->where('tipo_equipamento', 'PROJETOR');
+        $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
+        $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
+        //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
         $secretarias = Secretarias::all()->sortBy('nome');
-        return view('secretarias', compact('secretarias'));
+        $setores = Setores::all()->sortBy('nome');
+        $users = User::all()->sortBy('id');
+
+        return view('adicionar-secretaria', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'secretarias', 'setores', 'users'));
     }
 
     /**

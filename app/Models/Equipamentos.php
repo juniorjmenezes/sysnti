@@ -17,6 +17,10 @@ class Equipamentos extends Model
         'id_setor_origem',
         'data_remanejo',
         'tipo_remanejo',
+        'motivo',
+        'data_inservivel',
+        'leilao',
+        'mais_detalhes',
         'patrimonio',
         'status',
         'tipo_equipamento',
@@ -30,7 +34,6 @@ class Equipamentos extends Model
         'discos',
         'hd0',
         'hd1',
-        'hd2',
         'tipo_impressora',
         'tipo_cartucho',
         'cartuchos',
@@ -59,12 +62,19 @@ class Equipamentos extends Model
         'ethernet',
         'enderecamento',
         'internet',
+        'ip',
+        'mascara',
         'hostname',
         'grupo',
         'id_teamviewer',
         'id_supremo',
         'data_cadastro'
     ];
+
+    public function perifericos()
+    {
+        return $this->hasMany('App\Models\Perifericos', 'id_equipamento', 'id');
+    }
 
     public function secretaria()
     {
@@ -73,6 +83,11 @@ class Equipamentos extends Model
 
     public function setor()
     {
-        return $this->hasOne('App\Models\Secretarias', 'id', 'id_setor');
+        return $this->hasOne('App\Models\Setores', 'id', 'id_setor');
+    }
+
+    public function tecnico()
+    {
+        return $this->hasOne('App\Models\User', 'id', 'id_user');
     }
 }

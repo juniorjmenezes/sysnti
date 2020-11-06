@@ -23,6 +23,11 @@ class ScannersController extends Controller
         $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
         $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
         //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
         $horizontais = Equipamentos::all()->where('tipo_scanner', 'HORIZONTAL');
         $ult_horizontal = Equipamentos::all()->where('tipo_scanner', 'HORIZONTAL')->last();
         $portateis = Equipamentos::all()->where('tipo_scanner', 'PORTÁTIL');
@@ -33,7 +38,7 @@ class ScannersController extends Controller
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('scanners', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'horizontais', 'ult_horizontal', 'portateis', 'ult_portatil','verticais', 'ult_vertical', 'secretarias', 'setores', 'users'));
+        return view('scanners', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'horizontais', 'ult_horizontal', 'portateis', 'ult_portatil','verticais', 'ult_vertical', 'secretarias', 'setores', 'users'));
     }
 
     public function horizontais()
@@ -44,6 +49,11 @@ class ScannersController extends Controller
         $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
         $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
         //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
         $ult_scanner = Equipamentos::all()->where('tipo_equipamento', 'SCANNER')->last();
         //
         $horizontais = Equipamentos::all()->where('tipo_projetor', 'AVULSO');
@@ -56,7 +66,7 @@ class ScannersController extends Controller
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('horizontais', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ult_scanner', 'horizontais', 'portateis', 'ult_portatil','verticais', 'ult_vertical', 'secretarias', 'setores', 'users'));
+        return view('horizontais', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'ult_scanner', 'horizontais', 'portateis', 'ult_portatil','verticais', 'ult_vertical', 'secretarias', 'setores', 'users'));
     }
 
     public function portateis()
@@ -67,6 +77,11 @@ class ScannersController extends Controller
         $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
         $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
         //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
         $ult_scanner = Equipamentos::all()->where('tipo_equipamento', 'SCANNER')->last();
         //
         $horizontais = Equipamentos::all()->where('tipo_projetor', 'AVULSO');
@@ -79,7 +94,7 @@ class ScannersController extends Controller
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('portateis', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ult_scanner', 'horizontais', 'portateis', 'verticais', 'ult_vertical', 'secretarias', 'setores', 'users'));
+        return view('portateis', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'ult_scanner', 'horizontais', 'portateis', 'verticais', 'ult_vertical', 'secretarias', 'setores', 'users'));
     }
 
     public function verticais()
@@ -89,6 +104,11 @@ class ScannersController extends Controller
         $projetores = Equipamentos::all()->where('tipo_equipamento', 'PROJETOR');
         $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
         $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
+        //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
         //
         $ult_scanner = Equipamentos::all()->where('tipo_equipamento', 'SCANNER')->last();
         //
@@ -102,7 +122,7 @@ class ScannersController extends Controller
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('verticais', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ult_scanner', 'horizontais', 'portateis', 'ult_portatil','verticais', 'secretarias', 'setores', 'users'));
+        return view('verticais', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'ult_scanner', 'horizontais', 'portateis', 'ult_portatil','verticais', 'secretarias', 'setores', 'users'));
     }
 
     /**

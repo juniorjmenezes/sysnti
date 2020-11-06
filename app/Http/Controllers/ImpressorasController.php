@@ -23,6 +23,11 @@ class ImpressorasController extends Controller
         $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
         $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
         //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
         $jato_tinta = Equipamentos::all()->where('tipo_impressora', 'JATO DE TINTA');
         $ult_jato_tinta = Equipamentos::all()->where('tipo_impressora', 'JATO DE TINTA')->last();
         $laser = Equipamentos::all()->where('tipo_impressora', 'LASER');
@@ -33,7 +38,7 @@ class ImpressorasController extends Controller
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('impressoras', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'jato_tinta', 'ult_jato_tinta', 'laser', 'ult_laser','outras_impressoras', 'ult_outras_impressoras', 'secretarias', 'setores', 'users'));
+        return view('impressoras', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'jato_tinta', 'ult_jato_tinta', 'laser', 'ult_laser','outras_impressoras', 'ult_outras_impressoras', 'secretarias', 'setores', 'users'));
     }
 
     public function jato_tinta()
@@ -44,6 +49,11 @@ class ImpressorasController extends Controller
         $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
         $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
         //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
         $ult_impressora = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->last();
         //
         $jato_tinta = Equipamentos::all()->where('tipo_impressora', 'JATO DE TINTA');
@@ -55,7 +65,7 @@ class ImpressorasController extends Controller
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('jato-de-tinta', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ult_impressora', 'jato_tinta', 'laser', 'ult_laser','outras_impressoras', 'ult_outras_impressoras', 'secretarias', 'setores', 'users'));
+        return view('jato-de-tinta', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'ult_impressora', 'jato_tinta', 'laser', 'ult_laser','outras_impressoras', 'ult_outras_impressoras', 'secretarias', 'setores', 'users'));
     }
 
     public function laser()
@@ -66,6 +76,11 @@ class ImpressorasController extends Controller
         $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
         $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
         //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
         $ult_impressora = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->last();
         //
         $jato_tinta = Equipamentos::all()->where('tipo_impressora', 'JATO DE TINTA');
@@ -77,7 +92,7 @@ class ImpressorasController extends Controller
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('laser', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ult_impressora', 'jato_tinta', 'ult_jato_tinta', 'laser', 'outras_impressoras', 'ult_outras_impressoras', 'secretarias', 'setores', 'users'));
+        return view('laser', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'ult_impressora', 'jato_tinta', 'ult_jato_tinta', 'laser', 'outras_impressoras', 'ult_outras_impressoras', 'secretarias', 'setores', 'users'));
     }
 
     public function outras_impressoras()
@@ -87,6 +102,11 @@ class ImpressorasController extends Controller
         $projetores = Equipamentos::all()->where('tipo_equipamento', 'PROJETOR');
         $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
         $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
+        //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
         //
         $ult_impressora = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->last();
         //
@@ -99,7 +119,7 @@ class ImpressorasController extends Controller
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('outras-impressoras', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ult_impressora', 'jato_tinta', 'ult_jato_tinta', 'laser', 'ult_laser','outras_impressoras', 'secretarias', 'setores', 'users'));
+        return view('outras-impressoras', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'ult_impressora', 'jato_tinta', 'ult_jato_tinta', 'laser', 'ult_laser','outras_impressoras', 'secretarias', 'setores', 'users'));
     }
 
     /**

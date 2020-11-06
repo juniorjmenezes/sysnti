@@ -23,6 +23,11 @@ class RoteadoresController extends Controller
         $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
         $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
         //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
         $com_fio = Equipamentos::all()->where('tipo_roteador', 'COM FIO');
         $ult_com_fio = Equipamentos::all()->where('tipo_roteador', 'COM FIO')->last();
         $sem_fio = Equipamentos::all()->where('tipo_roteador', 'SEM FIO');
@@ -31,7 +36,7 @@ class RoteadoresController extends Controller
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('roteadores', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'com_fio', 'ult_com_fio', 'sem_fio', 'ult_sem_fio', 'secretarias', 'setores', 'users'));
+        return view('roteadores', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'com_fio', 'ult_com_fio', 'sem_fio', 'ult_sem_fio', 'secretarias', 'setores', 'users'));
     }
 
     public function com_fio()
@@ -42,6 +47,11 @@ class RoteadoresController extends Controller
         $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
         $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
         //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
         $ult_roteador = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR')->last();
         //
         $com_fio = Equipamentos::all()->where('tipo_roteador', 'COM FIO');
@@ -51,7 +61,7 @@ class RoteadoresController extends Controller
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('com-fio', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ult_roteador','com_fio', 'sem_fio', 'ult_sem_fio', 'secretarias', 'setores', 'users'));
+        return view('com-fio', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'ult_roteador','com_fio', 'sem_fio', 'ult_sem_fio', 'secretarias', 'setores', 'users'));
     }
 
     public function sem_fio()
@@ -62,6 +72,11 @@ class RoteadoresController extends Controller
         $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
         $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
         //
+        $ativos = Equipamentos::all()->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        //
         $ult_roteador = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR')->last();
         //
         $com_fio = Equipamentos::all()->where('tipo_roteador', 'COM FIO');
@@ -71,7 +86,7 @@ class RoteadoresController extends Controller
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('sem-fio', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ult_roteador','com_fio', 'ult_com_fio', 'sem_fio','secretarias', 'setores', 'users'));
+        return view('sem-fio', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'ult_roteador','com_fio', 'ult_com_fio', 'sem_fio','secretarias', 'setores', 'users'));
     }
 
     /**
