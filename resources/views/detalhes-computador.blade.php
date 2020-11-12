@@ -37,11 +37,13 @@
                                         <ul class="nav nav-tabs" role="tablist">
                                             <li class="nav-item">
                                                 <a class="nav-link active" data-toggle="tab" href="#alocacao" role="tab">
+                                                    <i class="ti-home mr-1 align-middle"></i>
                                                     <span class="d-none d-md-inline-block">ALOCAÇÃO</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" data-toggle="tab" href="#cadastro" role="tab">
+                                                    <i class="ti-clipboard mr-1 align-middle"></i>
                                                     <span class="d-none d-md-inline-block">DETALHES DO CADASTRO</span>
                                                 </a>
                                             </li>
@@ -117,31 +119,37 @@
                                         <ul class="nav nav-tabs" role="tablist">
                                             <li class="nav-item">
                                                 <a class="nav-link active" data-toggle="tab" href="#hardware" role="tab">
+                                                    <i class="ti-desktop mr-1 align-middle"></i>
                                                     <span class="d-none d-md-inline-block">HARDWARE</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" data-toggle="tab" href="#software" role="tab">
+                                                    <i class="ti-save mr-1 align-middle"></i>
                                                     <span class="d-none d-md-inline-block">SOFTWARE</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" data-toggle="tab" href="#perifericos" role="tab">
+                                                    <i class="ti-package mr-1 align-middle"></i>
                                                     <span class="d-none d-md-inline-block">PERIFÉRICOS</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" data-toggle="tab" href="#rede" role="tab">
+                                                    <i class="ti-world mr-1 align-middle"></i>
                                                     <span class="d-none d-md-inline-block">REDE E CONEXÃO</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" data-toggle="tab" href="#servicos" role="tab">
+                                                    <i class="ti-settings mr-1 align-middle"></i>
                                                     <span class="d-none d-md-inline-block">SERVIÇOS</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" data-toggle="tab" href="#observacoes" role="tab">
+                                                    <i class="ti-comment-alt mr-1 align-middle"></i>
                                                     <span class="d-none d-md-inline-block">OBSERVAÇÕES</span>
                                                 </a>
                                             </li>
@@ -203,18 +211,15 @@
                                                 <input type="hidden" name="id_equipamento" value="@php echo $computador->id; @endphp">
                                                 @csrf
                                                     <div class="form-group row">
-                                                        <div class="col-md-4">
-                                                            <div class="chosen-select-act fm-cmp-mg">
-                                                                <select class="chosen form-control" name="id_periferico">
-                                                                    <option disabled value="" selected>SELECIONE O PERIFÉRICO...</option>
-                                                                    @foreach($perifericos as $periferico)
-                                                                    <option value="{{$periferico->id}}">{{$periferico->patrimonio}}/{{$periferico->tipo_periferico}}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </div>
-                                                        </div>
                                                         <div class="col-md-2">
-                                                            <button type="submit" class="btn btn-primary mt-5 mt-sm-0">INSERIR</button>
+                                                            <input class="form-control" id="buscar-perifericos" type="text">
+                                                            <input type="hidden" id="id-periferico" name="id_periferico" readonly>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <input class="form-control" id="tipo-periferico" type="text" readonly>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <button type="submit" class="btn btn-primary mt-2 mt-sm-0">+</button>
                                                         </div>
                                                         <label class="col-md-2 col-form-label">Buscar Periférico</label>
                                                         <div class="col-md-4">
@@ -225,7 +230,7 @@
                                                 <div class="form-group row">
                                                     <div class="col-md-12">
                                                         <div class="table-responsive">
-                                                            <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                                            <table id="datatable-perifericos" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                                                 <thead>
                                                                     <tr>
                                                                         <th scope="col">Tipo</th>
@@ -475,7 +480,6 @@
                     </div>
                 </div>
                 <!-- End Page-content -->
-
                 <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
@@ -492,10 +496,8 @@
                 </footer>
             </div>
             <!-- end main content-->
-
         </div>
         <!-- END layout-wrapper -->
-
         <!-- Right Sidebar -->
         <div class="right-bar">
             <div data-simplebar class="h-100">
@@ -818,8 +820,7 @@
         <script src="<?= asset('assets/libs/simplebar/simplebar.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/node-waves/waves.min.js'); ?>"></script>
         <script src="<?= asset('assets/js/app.js'); ?>"></script>
-        <script src="<?= asset('assets/js/chosen.jquery.js'); ?>"></script>
-        <script src="<?= asset('assets/js/pages/chosen.init.js'); ?>"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
         <script src="<?= asset('assets/libs/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js'); ?>"></script>
@@ -828,19 +829,62 @@
         <script src="<?= asset('assets/libs/inputmask/min/jquery.inputmask.bundle.min.js'); ?>"></script>
         <!-- form mask init -->
         <script src="<?= asset('assets/js/pages/form-mask.init.js'); ?>"></script>
+        <!-- Jquery autocomplete -->
+        <script src="<?= asset('assets/libs/jquery-ui-dist/jquery-ui.min.js'); ?>"></script>
         <!-- form advanced init -->
         <script src="<?= asset('assets/js/pages/form-advanced.init.js'); ?>"></script>
         <!-- Required datatable js -->
         <script src="<?= asset('assets/libs/datatables.net/js/jquery.dataTables.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js'); ?>"></script>
-        <!-- Datatable init js -->
-        <script src="<?= asset('assets/js/pages/datatables.init.js'); ?>"></script>
-        <script>
-            function filterGlobal () {
-            $('#datatable-buttons').table.search(
-                $('#global_filter').val()).draw();
-            };
-        </script>
-    </body>
 
+        <!-- Datatable init js -->
+        <script>
+            var oTable = $('#datatable-perifericos').DataTable({
+                lengthChange: !1,
+                buttons: ["copy", "excel", "pdf", "print", "colvis"],
+                "bFilter": true,
+                "language": {
+                    "sSearch": "Buscar",
+                    "lengthMenu": "Display _MENU_ records per page",
+                    "zeroRecords": "Nenhum Periférico encontrado para os termos pesquisados.",
+                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "infoEmpty": "Não há registro disponível",
+                    "infoFiltered": "(de _MAX_ total Periféricos)",
+                    "paginate": {
+                        "sNext": "Próximo",
+                        "sPrevious": "Anterior"
+                    },
+                }
+            });
+            $('#global_filter').keyup(function(){
+            oTable.search( $(this).val() ).draw();
+            })
+
+            $('#datatable-perifericos_filter').hide();
+        </script>
+        <script>
+            $("#buscar-perifericos").autocomplete({
+                source: function( request, response ) {
+                // Fetch data
+                $.ajax({
+                    url:"{{url('api/perifericos')}}",
+                    dataType: "json",
+                    data: {
+                    search: request.term
+                    },
+                    success: function( data ) {
+                    response( data );
+                    }
+                });
+                },
+                select: function (event, ui) {
+                // Set selection
+                $('#id-periferico').val(ui.item.id); // save selected id to input
+                $('#buscar-perifericos').val(ui.item.label); // display the selected text
+                $('#tipo-periferico').val(ui.item.desc);
+                return false;
+                }
+            });
+            </script>
+    </body>
 </html>

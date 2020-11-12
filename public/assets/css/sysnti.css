@@ -1,13 +1,27 @@
+/** Inputs, Selects, Textarea e Touchspin em Adição de Equipamentos **/
 .adicionar-equipamento input,
-.adicionar-periferico input,
+.adicionar-equipamento select,
 .adicionar-equipamento textarea,
+.adicionar-equipamento span.input-group-text,
+.adicionar-equipamento div.bootstrap-touchspin button.btn,
+
+/** Inputs, Textarea e Touchspin em Adição de Perifericos **/
+.adicionar-periferico input,
+.adicionar-periferico select,
 .adicionar-periferico textarea,
+.adicionar-periferico span.input-group-text,
+.adicionar-periferico div.bootstrap-touchspin button.btn,
+
+/** Inputs, Textarea e Touchspin em Adição de Órgãos **/
 .adicionar-secretaria input,
 .adicionar-setor input,
-.adicionar-equipamento div.bootstrap-touchspin button.btn,
-.adicionar-periferico div.bootstrap-touchspin button.btn,
-.adicionar-equipamento span.input-group-text,
-.adicionar-periferico span.input-group-text,
-.listar-secretarias input {
+.adicionar-setor select,
+.listar-secretarias input,
+
+/** Inputs em Abas **/
+#perifericos input,
+
+/** DataTables **/
+#global_filter {
     border-radius: 0 !important;
 }

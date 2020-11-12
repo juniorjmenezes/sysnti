@@ -38,7 +38,7 @@
                                                 <label class="col-md-2 col-form-label">Secretaria</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="id_secretaria">
+                                                        <select class="chosen custom-select form-control" name="id_secretaria">
                                                             <option disabled value="" selected>SELECIONE...</option>
                                                             @foreach($secretarias as $secretaria)
                                                             @if (old('id_secretaria') == $secretaria->id)
@@ -53,7 +53,7 @@
                                                 <label class="col-md-2 col-form-label">Setor</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="id_setor">
+                                                        <select class="chosen custom-select form-control" name="id_setor">
                                                             <option disabled value="" selected>SELECIONE...</option>
                                                             @foreach($setores as $setor)
                                                             @if (old('id_setor') == $setor->id)
@@ -74,7 +74,7 @@
                                                 <label class="col-md-2 col-form-label">Status</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select id="status" class="chosen form-control" name="status">
+                                                        <select id="status" class="chosen custom-select form-control" name="status">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>ATIVO</option>
                                                             <option>INSERVÍVEL</option>
@@ -88,7 +88,7 @@
                                                 <label class="col-md-2 col-form-label">Tipo de Periférico</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select id="tipo_periferico" class="chosen form-control" name="tipo_periferico">
+                                                        <select id="tipo_periferico" class="chosen custom-select form-control" name="tipo_periferico">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>AUTOTRANSFORMADOR</option>
                                                             <option>ESTABILIZADOR</option>
@@ -134,7 +134,7 @@
                                                 <label class="col-md-2 col-form-label">Padrão de Tomadas</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="padrao_tomadas_atr">
+                                                        <select class="chosen custom-select form-control" name="padrao_tomadas_atr">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>ANTIGO</option>
                                                             <option>NBR 14136</option>
@@ -163,7 +163,7 @@
                                                 <label class="col-md-2 col-form-label">Padrão de Tomadas</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="padrao_tomadas_est">
+                                                        <select class="chosen custom-select form-control" name="padrao_tomadas_est">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>ANTIGO</option>
                                                             <option>NBR 14136</option>
@@ -180,7 +180,7 @@
                                                 <label class="col-md-2 col-form-label">Voltagem Entrada</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="volt_entrada_est">
+                                                        <select class="chosen custom-select form-control" name="volt_entrada_est">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>110V</option>
                                                             <option>220V</option>
@@ -191,7 +191,7 @@
                                                 <label class="col-md-2 col-form-label">Voltagem Saída</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="volt_saida_est">
+                                                        <select class="chosen custom-select form-control" name="volt_saida_est">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>110V</option>
                                                             <option>220V</option>
@@ -224,7 +224,7 @@
                                                 <label class="col-md-2 col-form-label">Padrão de Tomadas</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="padrao_tomadas_nbr">
+                                                        <select class="chosen custom-select form-control" name="padrao_tomadas_nbr">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>ANTIGO</option>
                                                             <option>NBR 14136</option>
@@ -241,7 +241,7 @@
                                                 <label class="col-md-2 col-form-label">Voltagem Entrada</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="volt_entrada_nbr">
+                                                        <select class="chosen custom-select form-control" name="volt_entrada_nbr">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>110V</option>
                                                             <option>220V</option>
@@ -252,7 +252,7 @@
                                                 <label class="col-md-2 col-form-label">Voltagem Saída</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="volt_saida_nbr">
+                                                        <select class="chosen custom-select form-control" name="volt_saida_nbr">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>110V</option>
                                                             <option>220V</option>
@@ -291,7 +291,7 @@
                                                 <label class="col-md-2 col-form-label">Padrão de Tomadas</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="padrao_tomadas_mdi">
+                                                        <select class="chosen custom-select form-control" name="padrao_tomadas_mdi">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>ANTIGO</option>
                                                             <option>NBR 14136</option>
@@ -308,7 +308,7 @@
                                                 <label class="col-md-2 col-form-label">Voltagem Entrada</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="volt_entrada_mdi">
+                                                        <select class="chosen custom-select form-control" name="volt_entrada_mdi">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>110V</option>
                                                             <option>220V</option>
@@ -319,7 +319,7 @@
                                                 <label class="col-md-2 col-form-label">Voltagem Saída</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="volt_saida_mdi">
+                                                        <select class="chosen custom-select form-control" name="volt_saida_mdi">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>110V</option>
                                                             <option>220V</option>
@@ -338,7 +338,7 @@
                                                 <label class="col-md-2 col-form-label">Estabilizador</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="estabilizador_mdi">
+                                                        <select class="chosen custom-select form-control" name="estabilizador_mdi">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>SIM</option>
                                                             <option>NÃO</option>
@@ -362,7 +362,7 @@
                                                 <label class="col-md-2 col-form-label">Tipo de Tela</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="tipo_tela_mnt">
+                                                        <select class="chosen custom-select form-control" name="tipo_tela_mnt">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>CRT</option>
                                                             <option>LCD</option>
@@ -380,7 +380,7 @@
                                                 <label class="col-md-2 col-form-label">Conexões</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="conexoes_mnt">
+                                                        <select class="chosen custom-select form-control" name="conexoes_mnt">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>VGA</option>
                                                             <option>VGA/DVI</option>
@@ -392,7 +392,7 @@
                                                 <label class="col-md-2 col-form-label">Padrão de Tomadas</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="padrao_tomadas_mnt">
+                                                        <select class="chosen custom-select form-control" name="padrao_tomadas_mnt">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>ANTIGO</option>
                                                             <option>NBR 14136</option>
@@ -417,7 +417,7 @@
                                                 <label class="col-md-2 col-form-label">Resolução</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="resolucao_wbc">
+                                                        <select class="chosen custom-select form-control" name="resolucao_wbc">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>VGA</option>
                                                             <option>HD</option>
@@ -429,7 +429,7 @@
                                                 <label class="col-md-2 col-form-label">Microfone</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="microfone_wbc">
+                                                        <select class="chosen custom-select form-control" name="microfone_wbc">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>SIM</option>
                                                             <option>NÃO</option>
@@ -453,7 +453,7 @@
                                                 <label class="col-md-2 col-form-label">Técnico</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="id_user">
+                                                        <select class="chosen custom-select form-control" name="id_user">
                                                             <option disabled value="" selected>SELECIONE...</option>
                                                             @foreach($users as $tecnico)
                                                             @if (old('id_setor') == $tecnico->id)
@@ -477,7 +477,7 @@
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-md-8 mt-3">
-                                                    <button type="submit" class="btn btn-primary mt-5 mt-sm-0">SALVAR</button>
+                                                    <button type="submit" class="btn btn-primary mt-sm-0">SALVAR</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -826,11 +826,15 @@
         <!-- JAVASCRIPT -->
         <script src="<?= asset('assets/libs/jquery/jquery.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+        <!-- side menu -->
         <script src="<?= asset('assets/libs/metismenu/metisMenu.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/simplebar/simplebar.min.js'); ?>"></script>
-        <script src="<?= asset('assets/libs/node-waves/waves.min.js'); ?>"></script>
+        <!-- other menu bar -->
         <script src="<?= asset('assets/js/app.js'); ?>"></script>
+        <!-- chosen jquery -->
         <script src="<?= asset('assets/js/chosen.jquery.js'); ?>"></script>
+        <script src="<?= asset('assets/js/pages/chosen.init.js'); ?>"></script>
+        <!-- bootstrap libs -->
         <script src="<?= asset('assets/libs/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js'); ?>"></script>
@@ -840,7 +844,9 @@
         <script src="<?= asset('assets/js/pages/form-mask.init.js'); ?>"></script>
         <!-- form advanced init -->
         <script src="<?= asset('assets/js/pages/form-advanced.init.js'); ?>"></script>
+        <!-- alertify -->
         <script src="<?= asset('assets/libs/alertifyjs/build/alertify.js'); ?>"></script>
+        <!-- sysnti addons -->
         <script src="<?= asset('assets/js/pages/adicionar-periferico.js'); ?>"></script>
         @if (session('mensagem'))
         <script>

@@ -402,11 +402,12 @@
         <!-- JAVASCRIPT -->
         <script src="<?= asset('assets/libs/jquery/jquery.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+        <!-- side menu -->
         <script src="<?= asset('assets/libs/metismenu/metisMenu.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/simplebar/simplebar.min.js'); ?>"></script>
-        <script src="<?= asset('assets/libs/node-waves/waves.min.js'); ?>"></script>
+        <!-- other menu bar -->
         <script src="<?= asset('assets/js/app.js'); ?>"></script>
-        <script src="<?= asset('assets/js/chosen.jquery.js'); ?>"></script>
+        <!-- bootstrap libs -->
         <script src="<?= asset('assets/libs/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js'); ?>"></script>
@@ -414,6 +415,9 @@
         <script src="<?= asset('assets/libs/inputmask/min/jquery.inputmask.bundle.min.js'); ?>"></script>
         <!-- form mask init -->
         <script src="<?= asset('assets/js/pages/form-mask.init.js'); ?>"></script>
+        <!-- form advanced init -->
+        <script src="<?= asset('assets/js/pages/form-advanced.init.js'); ?>"></script>
+        <!-- alertify -->
         <script src="<?= asset('assets/libs/alertifyjs/build/alertify.js'); ?>"></script>
         @if (session('mensagem'))
         <script>

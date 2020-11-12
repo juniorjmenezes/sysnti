@@ -38,7 +38,7 @@
                                                 <label class="col-md-2 col-form-label">Secretaria</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="id_secretaria">
+                                                        <select class="chosen custom-select form-control" name="id_secretaria">
                                                             <option disabled value="" selected>SELECIONE...</option>
                                                             @foreach($secretarias as $secretaria)
                                                             @if (old('id_secretaria') == $secretaria->id)
@@ -53,7 +53,7 @@
                                                 <label class="col-md-2 col-form-label">Setor</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="id_setor">
+                                                        <select class="chosen custom-select form-control" name="id_setor">
                                                             <option disabled value="" selected>SELECIONE...</option>
                                                             @foreach($setores as $setor)
                                                             @if (old('id_setor') == $setor->id)
@@ -74,7 +74,7 @@
                                                 <label class="col-md-2 col-form-label">Status</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select id="status" class="chosen form-control" name="status">
+                                                        <select id="status" class="chosen custom-select form-control" name="status">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>ATIVO</option>
                                                             <option>INSERVÍVEL</option>
@@ -88,7 +88,7 @@
                                                 <label class="col-md-2 col-form-label">Tipo de Equipamento</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select id="tipo_equipamento" class="chosen form-control" name="tipo_equipamento">
+                                                        <select id="tipo_equipamento" class="chosen custom-select form-control" name="tipo_equipamento">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>COMPUTADOR</option>
                                                             <option>IMPRESSORA</option>
@@ -133,7 +133,7 @@
                                                 <label class="col-md-2 col-form-label">Tipo de Computador</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="tipo_computador">
+                                                        <select class="chosen custom-select form-control" name="tipo_computador">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>DESKTOP</option>
                                                             <option>NOTEBOOK</option>
@@ -145,7 +145,7 @@
                                                 <label class="col-md-2 col-form-label">Sistema Operacional</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="so">
+                                                        <select class="chosen custom-select form-control" name="so">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>LINUX</option>
                                                             <option>MS WINDOWS XP PROFESSIONAL</option>
@@ -199,7 +199,7 @@
                                                 <label class="col-md-2 col-form-label">Tipo de Impressora</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select id="tipo_impressora" class="chosen form-control" name="tipo_impressora">
+                                                        <select id="tipo_impressora" class="chosen custom-select form-control" name="tipo_impressora">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>DUPLICADOR</option>
                                                             <option>JATO DE TINTA</option>
@@ -211,7 +211,7 @@
                                                 <label class="col-md-2 col-form-label">Tipo de Cartucho</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="tipo_cartucho">
+                                                        <select class="chosen custom-select form-control" name="tipo_cartucho">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>FITA</option>
                                                             <option>TINTA</option>
@@ -224,7 +224,7 @@
                                                 <label class="col-md-2 col-form-label">Quantidade Cartuchos</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select id="cartuchos" class="chosen form-control" name="cartuchos">
+                                                        <select id="cartuchos" class="chosen custom-select form-control" name="cartuchos">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>ÚNICO</option>
                                                             <option>KIT C/ 4</option>
@@ -270,7 +270,7 @@
                                                 <label class="col-md-2 col-form-label">Tipo de Projetor</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select id="tipo_projetor" class="chosen form-control" name="tipo_projetor">
+                                                        <select id="tipo_projetor" class="chosen custom-select form-control" name="tipo_projetor">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>AVULSO</option>
                                                             <option>INTEGRADO</option>
@@ -287,7 +287,7 @@
                                                     <label class="col-md-2 col-form-label">Sistema Operacional</label>
                                                     <div class="col-md-4">
                                                         <div class="chosen-select-act fm-cmp-mg">
-                                                            <select class="chosen form-control" name="so_projetor">
+                                                            <select class="chosen custom-select form-control" name="so_projetor">
                                                                 <option disabled selected>SELECIONE...</option>
                                                                 <option>LINUX</option>
                                                                 <option>MS WINDOWS XP PROFESSIONAL</option>
@@ -329,7 +329,7 @@
                                                 <label class="col-md-2 col-form-label">Tipo de Roteador</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select id="tipo_roteador" class="chosen form-control" name="tipo_roteador">
+                                                        <select id="tipo_roteador" class="chosen custom-select form-control" name="tipo_roteador">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>COM FIO</option>
                                                             <option>SEM FIO</option>
@@ -358,7 +358,7 @@
                                                     <label class="col-md-2 col-form-label">Tipo de Criptografia</label>
                                                     <div class="col-md-4">
                                                         <div class="chosen-select-act fm-cmp-mg">
-                                                            <select class="chosen form-control" name="tipo_criptografia">
+                                                            <select class="chosen custom-select form-control" name="tipo_criptografia">
                                                                 <option disabled selected>SELECIONE...</option>
                                                                 <option>ABERTO</option>
                                                                 <option>WEP</option>
@@ -400,7 +400,7 @@
                                                 <label class="col-md-2 col-form-label">Tipo de Scanner</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="tipo_scanner">
+                                                        <select class="chosen custom-select form-control" name="tipo_scanner">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>HORIZONTAL</option>
                                                             <option>PORTÁTIL</option>
@@ -425,7 +425,7 @@
                                                 <label class="col-md-2 col-form-label">Tipo de Conexão</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select id="tipo_conexao" class="chosen form-control" name="tipo_conexao">
+                                                        <select id="tipo_conexao" class="chosen custom-select form-control" name="tipo_conexao">
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>NENHUM</option>
                                                             <option>ETHERNET</option>
@@ -437,7 +437,7 @@
                                                 <label class="col-md-2 col-form-label">Adaptador</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select id="adaptador" class="chosen form-control" name="adaptador">
+                                                        <select id="adaptador" class="chosen custom-select form-control" name="adaptador">
                                                             <option disabled selected>UTILIZA ADAPTADOR EXTERNO?</option>
                                                             <option>SIM</option>
                                                             <option>NÃO</option>
@@ -450,7 +450,7 @@
                                                     <label class="col-md-2 col-form-label">Versão USB</label>
                                                     <div class="col-md-4">
                                                         <div class="chosen-select-act fm-cmp-mg">
-                                                            <select id="versao_usb" class="chosen form-control" name="versao_usb">
+                                                            <select id="versao_usb" class="chosen custom-select form-control" name="versao_usb">
                                                                 <option disabled selected>SELECIONE...</option>
                                                                 <option>2.0</option>
                                                                 <option>3.0</option>
@@ -461,7 +461,7 @@
                                                     <label class="col-md-2 col-form-label">Ethernet</label>
                                                     <div class="col-md-4">
                                                         <div class="chosen-select-act fm-cmp-mg">
-                                                            <select id="ethernet" class="chosen form-control" name="ethernet">
+                                                            <select id="ethernet" class="chosen custom-select form-control" name="ethernet">
                                                                 <option disabled selected>POSSUI PORTA ETHERNET?</option>
                                                                 <option>SIM</option>
                                                                 <option>NÃO</option>
@@ -485,7 +485,7 @@
                                                     <label class="col-md-2 col-form-label">Internet</label>
                                                     <div class="col-md-4">
                                                         <div class="chosen-select-act fm-cmp-mg">
-                                                            <select id="internet" class="chosen form-control" name="internet">
+                                                            <select id="internet" class="chosen custom-select form-control" name="internet">
                                                                 <option disabled selected>SE CONECTA À INTERNET?</option>
                                                                 <option>SIM</option>
                                                                 <option>NÃO</option>
@@ -540,7 +540,7 @@
                                                 <label class="col-md-2 col-form-label">Técnico</label>
                                                 <div class="col-md-4">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="id_user">
+                                                        <select class="chosen custom-select form-control" name="id_user">
                                                             <option disabled value="" selected>SELECIONE...</option>
                                                             @foreach($users as $tecnico)
                                                             @if (old('id_setor') == $tecnico->id)
@@ -913,11 +913,15 @@
         <!-- JAVASCRIPT -->
         <script src="<?= asset('assets/libs/jquery/jquery.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+        <!-- side menu -->
         <script src="<?= asset('assets/libs/metismenu/metisMenu.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/simplebar/simplebar.min.js'); ?>"></script>
-        <script src="<?= asset('assets/libs/node-waves/waves.min.js'); ?>"></script>
+        <!-- other menu bar -->
         <script src="<?= asset('assets/js/app.js'); ?>"></script>
+        <!-- chosen jquery -->
         <script src="<?= asset('assets/js/chosen.jquery.js'); ?>"></script>
+        <script src="<?= asset('assets/js/pages/chosen.init.js'); ?>"></script>
+        <!-- bootstrap libs -->
         <script src="<?= asset('assets/libs/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js'); ?>"></script>
@@ -927,7 +931,9 @@
         <script src="<?= asset('assets/js/pages/form-mask.init.js'); ?>"></script>
         <!-- form advanced init -->
         <script src="<?= asset('assets/js/pages/form-advanced.init.js'); ?>"></script>
+        <!-- alertify -->
         <script src="<?= asset('assets/libs/alertifyjs/build/alertify.js'); ?>"></script>
+        <!-- sysnti addons -->
         <script src="<?= asset('assets/js/pages/adicionar-equipamento.js'); ?>"></script>
         @if (session('mensagem'))
         <script>

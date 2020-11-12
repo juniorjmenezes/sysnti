@@ -31,9 +31,10 @@
         <link href="<?= asset('assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css'); ?>" rel="stylesheet" type="text/css" />
         <!-- Responsive datatable examples -->
         <link href="<?= asset('assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css'); ?>" rel="stylesheet" type="text/css" />
-         <!-- Sysnti Css-->
-         <link href="<?= asset('assets/css/sysnti.css'); ?>" rel="stylesheet" type="text/css" />
-
+        <!-- Sysnti Css-->
+        <link href="<?= asset('assets/css/sysnti.css'); ?>" rel="stylesheet" type="text/css" />
+        <!-- Jquery Autocomplete -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     </head>
 
     <body data-sidebar="dark">

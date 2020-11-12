@@ -94,6 +94,25 @@ class PerifericosController extends Controller
         return redirect()->back()->with('mensagem', 'Periférico adicionado com sucesso!');
     }
 
+    public function api(Request $request)
+    {
+        $search = $request->search;
+
+        if($search == ''){
+            $perifericos = Perifericos::orderby('id','asc')->select('id','patrimonio', 'tipo_periferico')->get();
+        }else{
+            $perifericos = Perifericos::orderby('id','asc')->select('id','patrimonio', 'tipo_periferico')->where('patrimonio', 'like', '%' .$search . '%')->get();
+        }
+
+        return $perifericos->map(function ($item) {
+            return [
+            'id' => $item->id,
+            'label' => $item->patrimonio,
+            'desc' => $item->tipo_periferico
+            ];
+        });
+    }
+
     /**
      * Display the specified resource.
      *

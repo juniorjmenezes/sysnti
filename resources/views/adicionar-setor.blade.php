@@ -38,7 +38,7 @@
                                                 <label class="col-md-2 col-form-label">Secretaria</label>
                                                 <div class="col-md-10">
                                                     <div class="chosen-select-act fm-cmp-mg">
-                                                        <select class="chosen form-control" name="id_secretaria">
+                                                        <select class="chosen custom-select form-control" name="id_secretaria">
                                                             <option disabled value="" selected>SELECIONE...</option>
                                                             @foreach($secretarias as $secretaria)
                                                             @if (old('id_secretaria') == $secretaria->id)
@@ -423,6 +423,7 @@
         <script src="<?= asset('assets/libs/node-waves/waves.min.js'); ?>"></script>
         <script src="<?= asset('assets/js/app.js'); ?>"></script>
         <script src="<?= asset('assets/js/chosen.jquery.js'); ?>"></script>
+        <script src="<?= asset('assets/js/pages/chosen.init.js'); ?>"></script>
         <script src="<?= asset('assets/libs/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js'); ?>"></script>
@@ -433,7 +434,6 @@
         <!-- form advanced init -->
         <script src="<?= asset('assets/js/pages/form-advanced.init.js'); ?>"></script>
         <script src="<?= asset('assets/libs/alertifyjs/build/alertify.js'); ?>"></script>
-        <script src="<?= asset('assets/js/pages/chosen.js'); ?>"></script>
         @if (session('mensagem'))
         <script>
             function alertas() {

@@ -10,7 +10,7 @@ use App\Http\Controllers\RoteadoresController;
 use App\Http\Controllers\ScannersController;
 use App\Http\Controllers\SecretariasController;
 use App\Http\Controllers\SetoresController;
-use App\Models\Setores;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +65,8 @@ Route::get('/detalhes-scanner', 'App\Http\Controllers\ScannersController@show');
 Route::get('/detalhes-roteador', 'App\Http\Controllers\RoteadoresController@show');
 //
 Route::post('/inserir-periferico', 'App\Http\Controllers\PerifericosController@perifericos');
+// API
+Route::get('/api/perifericos', 'App\Http\Controllers\PerifericosController@api');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
