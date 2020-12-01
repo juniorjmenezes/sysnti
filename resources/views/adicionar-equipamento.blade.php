@@ -16,7 +16,7 @@
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Inventário</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Equipamentos</a></li>
                                             <li class="breadcrumb-item active">Novo Equipamento</li>
                                         </ol>
                                     </div>
@@ -166,21 +166,50 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-md-2 col-form-label">Quantidade HD(s)</label>
-                                                <div class="col-md-4">
-                                                    <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
-                                                        <input id="discos" class="form-control" name="discos" type="text" value="1">
+                                                <div class="col-md-12">
+                                                    <div id="accordion">
+                                                        <div class="card mb-0 mt-3">
+                                                            <div class="card-header" id="headingOne">
+                                                                <h5 class="m-0 font-size-14">
+                                                                    <a data-toggle="collapse" data-parent="#accordion" href="#discos" aria-expanded="true" aria-controls="collapseOne" class="text-dark">
+                                                                        Detalhar Armazenamento
+                                                                    </a>
+                                                                </h5>
+                                                            </div>
+                                                            <div id="discos" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                                                <div class="card-body">
+                                                                    <div class="form-group row">
+                                                                        <div class="col-md-2">
+                                                                            <label>Discos</label>
+                                                                            <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
+                                                                                <input id="discos" class="form-control" name="discos" type="text" value="0">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <label>HD0</label>
+                                                                            <input id="hd0" class="form-control" name="hd0" type="text" value="">
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <label>HD1</label>
+                                                                            <input id="hd1" class="form-control" name="hd1" type="text" value="">
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <label>HD2</label>
+                                                                            <input id="hd2" class="form-control" name="hd2" type="text" value="">
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <label>HD3</label>
+                                                                            <input id="hd3" class="form-control" name="hd3" type="text" value="">
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <label>HD4</label>
+                                                                            <input id="hd4" class="form-control" name="hd4" type="text" value="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <label class="col-md-2 col-form-label">HD0</label>
-                                                <div class="col-md-4">
-                                                    <input class="form-control" name="hd0" type="text" value="">
-                                                </div>
-                                            </div>
-                                            <div id="hd1" class="form-group row">
-                                                <label class="col-md-2 col-form-label">HD1</label>
-                                                <div class="col-md-4">
-                                                    <input class="form-control" name="hd1" type="text" value="">
                                                 </div>
                                             </div>
                                         </div>
@@ -221,36 +250,70 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-md-2 col-form-label">Quantidade Cartuchos</label>
-                                                <div class="col-md-4">
-                                                    <div class="chosen-select-act fm-cmp-mg">
-                                                        <select id="cartuchos" class="chosen custom-select form-control" name="cartuchos">
-                                                            <option disabled selected>SELECIONE...</option>
-                                                            <option>ÚNICO</option>
-                                                            <option>KIT C/ 4</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <label class="col-md-2 col-form-label">Cartucho Preto</label>
-                                                <div class="col-md-4">
-                                                    <input class="form-control" name="preto" type="text" value="">
-                                                </div>
-                                            </div>
-                                            <div id="coloridos">
-                                                <div class="form-group row">
-                                                    <label class="col-md-2 col-form-label">Cartucho Azul</label>
-                                                    <div class="col-md-4">
-                                                        <input class="form-control" name="preto" type="text" value="">
-                                                    </div>
-                                                    <label class="col-md-2 col-form-label">Cartucho Amarelo</label>
-                                                    <div class="col-md-4">
-                                                        <input class="form-control" name="amarelo" type="text" value="">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-md-2 col-form-label">Cartucho Magenta</label>
-                                                    <div class="col-md-4">
-                                                        <input class="form-control" name="magenta" type="text" value="">
+                                                <div class="col-md-12">
+                                                    <div id="accordion">
+                                                        <div class="card mb-0 mt-3">
+                                                            <div class="card-header" id="headingOne">
+                                                                <h5 class="m-0 font-size-14">
+                                                                    <a data-toggle="collapse" data-parent="#accordion" href="#suprimentos" aria-expanded="true" aria-controls="collapseOne" class="text-dark">
+                                                                        Detalhar Suprimentos
+                                                                    </a>
+                                                                </h5>
+                                                            </div>
+                                                            <div id="suprimentos" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                                                <div class="card-body">
+                                                                    <div class="form-group row">
+                                                                        <div class="col-md-2">
+                                                                            <label>Cartuchos</label>
+                                                                            <div class="chosen-select-act fm-cmp-mg">
+                                                                                <select id="cartuchos" class="chosen custom-select form-control" name="cartuchos">
+                                                                                    <option disabled selected>SELECIONE...</option>
+                                                                                    <option>01 CARTUCHO</option>
+                                                                                    <option>02 CARTUCHOS</option>
+                                                                                    <option>04 CARTUCHOS</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <label>Cartucho Preto</label>
+                                                                            <input id="preto" class="form-control" name="preto" type="text" value="">
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <label>Cartucho Tricolor</label>
+                                                                            <input id="tricolor" class="form-control" name="tricolor" type="text" value="">
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <label>Cartucho Amarelo</label>
+                                                                            <input id="amarelo" class="form-control" name="amarelo" type="text" value="">
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <label>Cartucho Azul</label>
+                                                                            <input id="azul" class="form-control" name="azul" type="text" value="">
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <label>Cartucho Magenta</label>
+                                                                            <input id="magenta" class="form-control" name="magenta" type="text" value="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <div class="col-md-2">
+                                                                            <label>Fotocondutor</label>
+                                                                            <div class="chosen-select-act fm-cmp-mg">
+                                                                                <select id="fotocondutor" class="chosen custom-select form-control" name="fotocondutor">
+                                                                                    <option disabled selected>SELECIONE...</option>
+                                                                                    <option>SIM</option>
+                                                                                    <option>NÃO</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <label>Modelo</label>
+                                                                            <input id="modelo_fotocondutor" class="form-control" name="modelo_fotocondutor" type="text" value="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -429,6 +492,7 @@
                                                             <option disabled selected>SELECIONE...</option>
                                                             <option>NENHUM</option>
                                                             <option>ETHERNET</option>
+                                                            <option>LPT</option>
                                                             <option>USB</option>
                                                             <option>WI-FI</option>
                                                         </select>

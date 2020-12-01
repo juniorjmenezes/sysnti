@@ -18,11 +18,6 @@ class EquipamentosController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function __invoke()
-    {
-        return view('index');
-    }
-
     public function index()
     {
         $computadores = Equipamentos::all()->where('tipo_equipamento', 'COMPUTADOR');

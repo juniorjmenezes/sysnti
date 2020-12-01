@@ -17,109 +17,161 @@ class ImpressorasController extends Controller
      */
     public function index()
     {
-        $computadores = Equipamentos::all()->where('tipo_equipamento', 'COMPUTADOR');
         $impressoras = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA');
-        $projetores = Equipamentos::all()->where('tipo_equipamento', 'PROJETOR');
-        $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
-        $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
-        //
-        $ativos = Equipamentos::all()->where('status', 'ATIVO');
-        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
-        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
-        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
         //
         $jato_tinta = Equipamentos::all()->where('tipo_impressora', 'JATO DE TINTA');
-        $ult_jato_tinta = Equipamentos::all()->where('tipo_impressora', 'JATO DE TINTA')->last();
         $laser = Equipamentos::all()->where('tipo_impressora', 'LASER');
-        $ult_laser = Equipamentos::all()->where('tipo_impressora', 'LASER')->last();
-        $outras_impressoras = Equipamentos::all()->where('tipo_impressora', 'DUPLICADOR', 'MATRICIAL');
-        $ult_outras_impressoras = Equipamentos::all()->where('tipo_impressora', 'DUPLICADOR', 'MATRICIAL')->last();
+        $outras_impressoras = Equipamentos::where('tipo_impressora', 'DUPLICADOR')->orWhere('tipo_impressora', 'MATRICIAL')->get();        //
+        $ativos = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'REMANEJADO');
+        //
         $secretarias = Secretarias::all()->sortBy('nome');
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('impressoras', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'jato_tinta', 'ult_jato_tinta', 'laser', 'ult_laser','outras_impressoras', 'ult_outras_impressoras', 'secretarias', 'setores', 'users'));
+        return view('impressoras', compact('impressoras', 'jato_tinta', 'laser', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'outras_impressoras', 'secretarias', 'setores', 'users'));
     }
 
     public function jato_tinta()
     {
-        $computadores = Equipamentos::all()->where('tipo_equipamento', 'COMPUTADOR');
         $impressoras = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA');
-        $projetores = Equipamentos::all()->where('tipo_equipamento', 'PROJETOR');
-        $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
-        $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
-        //
-        $ativos = Equipamentos::all()->where('status', 'ATIVO');
-        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
-        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
-        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
-        //
-        $ult_impressora = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->last();
         //
         $jato_tinta = Equipamentos::all()->where('tipo_impressora', 'JATO DE TINTA');
         $laser = Equipamentos::all()->where('tipo_impressora', 'LASER');
-        $ult_laser = Equipamentos::all()->where('tipo_impressora', 'LASER')->last();
-        $outras_impressoras = Equipamentos::all()->where('tipo_impressora', 'DUPLICADOR', 'MATRICIAL');
-        $ult_outras_impressoras = Equipamentos::all()->where('tipo_impressora', 'DUPLICADOR', 'MATRICIAL')->last();
+        $outras_impressoras = Equipamentos::where('tipo_impressora', 'DUPLICADOR')->orWhere('tipo_impressora', 'MATRICIAL')->get();        //
+        $ativos = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'REMANEJADO');
+        //
         $secretarias = Secretarias::all()->sortBy('nome');
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('jato-de-tinta', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'ult_impressora', 'jato_tinta', 'laser', 'ult_laser','outras_impressoras', 'ult_outras_impressoras', 'secretarias', 'setores', 'users'));
+        return view('jato-de-tinta', compact('impressoras', 'jato_tinta', 'laser', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'outras_impressoras', 'secretarias', 'setores', 'users'));
     }
 
     public function laser()
     {
-        $computadores = Equipamentos::all()->where('tipo_equipamento', 'COMPUTADOR');
         $impressoras = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA');
-        $projetores = Equipamentos::all()->where('tipo_equipamento', 'PROJETOR');
-        $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
-        $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
-        //
-        $ativos = Equipamentos::all()->where('status', 'ATIVO');
-        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
-        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
-        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
-        //
-        $ult_impressora = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->last();
         //
         $jato_tinta = Equipamentos::all()->where('tipo_impressora', 'JATO DE TINTA');
-        $ult_jato_tinta = Equipamentos::all()->where('tipo_impressora', 'JATO DE TINTA')->last();
         $laser = Equipamentos::all()->where('tipo_impressora', 'LASER');
-        $outras_impressoras = Equipamentos::all()->where('tipo_impressora', 'DUPLICADOR', 'MATRICIAL');
-        $ult_outras_impressoras = Equipamentos::all()->where('tipo_impressora', 'DUPLICADOR', 'MATRICIAL')->last();
+        $outras_impressoras = Equipamentos::where('tipo_impressora', 'DUPLICADOR')->orWhere('tipo_impressora', 'MATRICIAL')->get();        //
+        $ativos = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'REMANEJADO');
+        //
         $secretarias = Secretarias::all()->sortBy('nome');
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('laser', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'ult_impressora', 'jato_tinta', 'ult_jato_tinta', 'laser', 'outras_impressoras', 'ult_outras_impressoras', 'secretarias', 'setores', 'users'));
+        return view('laser', compact('impressoras', 'jato_tinta', 'laser', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'outras_impressoras', 'secretarias', 'setores', 'users'));
     }
 
     public function outras_impressoras()
     {
-        $computadores = Equipamentos::all()->where('tipo_equipamento', 'COMPUTADOR');
         $impressoras = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA');
-        $projetores = Equipamentos::all()->where('tipo_equipamento', 'PROJETOR');
-        $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
-        $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
-        //
-        $ativos = Equipamentos::all()->where('status', 'ATIVO');
-        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
-        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
-        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
-        //
-        $ult_impressora = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->last();
         //
         $jato_tinta = Equipamentos::all()->where('tipo_impressora', 'JATO DE TINTA');
-        $ult_jato_tinta = Equipamentos::all()->where('tipo_impressora', 'JATO DE TINTA')->last();
         $laser = Equipamentos::all()->where('tipo_impressora', 'LASER');
-        $ult_laser = Equipamentos::all()->where('tipo_impressora', 'LASER')->last();
-        $outras_impressoras = Equipamentos::all()->where('tipo_impressora', 'DUPLICADOR', 'MATRICIAL');
+        $outras_impressoras = Equipamentos::where('tipo_impressora', 'DUPLICADOR')->orWhere('tipo_impressora', 'MATRICIAL')->get();
+        //
+        $ativos = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'REMANEJADO');
+        //
         $secretarias = Secretarias::all()->sortBy('nome');
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('outras-impressoras', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'ult_impressora', 'jato_tinta', 'ult_jato_tinta', 'laser', 'ult_laser','outras_impressoras', 'secretarias', 'setores', 'users'));
+        return view('outras-impressoras', compact('impressoras', 'jato_tinta', 'laser', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'outras_impressoras', 'secretarias', 'setores', 'users'));
+    }
+
+    public function ativos()
+    {
+        $impressoras = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA');
+        //
+        $jato_tinta = Equipamentos::all()->where('tipo_impressora', 'JATO DE TINTA');
+        $laser = Equipamentos::all()->where('tipo_impressora', 'LASER');
+        $outras_impressoras = Equipamentos::where('tipo_impressora', 'DUPLICADOR')->orWhere('tipo_impressora', 'MATRICIAL')->get();        //
+        $ativos = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'ATIVO');
+        $p_ativos = Equipamentos::distinct()->select('tipo_impressora')->where('status', 'ATIVO')->get();
+        $inserviveis = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'REMANEJADO');
+        //
+        $secretarias = Secretarias::all()->sortBy('nome');
+        $setores = Setores::all()->sortBy('nome');
+        $users = User::all()->sortBy('id');
+
+        return view('impressoras-ativas', compact('impressoras', 'jato_tinta', 'laser', 'ativos', 'p_ativos', 'inserviveis', 'manutencao', 'remanejados', 'outras_impressoras', 'secretarias', 'setores', 'users'));
+    }
+
+    public function inserviveis()
+    {
+        $impressoras = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA');
+        //
+        $jato_tinta = Equipamentos::all()->where('tipo_impressora', 'JATO DE TINTA');
+        $laser = Equipamentos::all()->where('tipo_impressora', 'LASER');
+        $outras_impressoras = Equipamentos::where('tipo_impressora', 'DUPLICADOR')->orWhere('tipo_impressora', 'MATRICIAL')->get();        //
+        $ativos = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'INSERVÍVEL');
+        $p_inserviveis = Equipamentos::distinct()->select('tipo_impressora')->where('status', 'INSERVÍVEL')->get();
+        $manutencao = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'REMANEJADO');
+        //
+        $secretarias = Secretarias::all()->sortBy('nome');
+        $setores = Setores::all()->sortBy('nome');
+        $users = User::all()->sortBy('id');
+
+        return view('impressoras-inserviveis', compact('impressoras', 'jato_tinta', 'laser', 'ativos', 'inserviveis', 'p_inserviveis', 'manutencao', 'remanejados', 'outras_impressoras', 'secretarias', 'setores', 'users'));
+    }
+
+    public function manutencao()
+    {
+        $impressoras = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA');
+        //
+        $jato_tinta = Equipamentos::all()->where('tipo_impressora', 'JATO DE TINTA');
+        $laser = Equipamentos::all()->where('tipo_impressora', 'LASER');
+        $outras_impressoras = Equipamentos::all()->where('tipo_impressora', 'DUPLICADOR', 'MATRICIAL');
+        //
+        $ativos = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'MANUTENÇÃO');
+        $p_manutencao = Equipamentos::distinct()->select('tipo_impressora')->where('status', 'MANUTENÇÃO')->get();
+        $remanejados = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'REMANEJADO');
+        //
+        $secretarias = Secretarias::all()->sortBy('nome');
+        $setores = Setores::all()->sortBy('nome');
+        $users = User::all()->sortBy('id');
+
+        return view('impressoras-em-manutencao', compact('impressoras', 'jato_tinta', 'laser', 'ativos', 'inserviveis', 'manutencao', 'p_manutencao', 'remanejados', 'outras_impressoras', 'secretarias', 'setores', 'users'));
+    }
+
+    public function remanejados()
+    {
+        $impressoras = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA');
+        //
+        $jato_tinta = Equipamentos::all()->where('tipo_impressora', 'JATO DE TINTA');
+        $laser = Equipamentos::all()->where('tipo_impressora', 'LASER');
+        $outras_impressoras = Equipamentos::all()->where('tipo_impressora', 'DUPLICADOR', 'MATRICIAL');
+        //
+        $ativos = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'ATIVO');
+        $inserviveis = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'INSERVÍVEL');
+        $manutencao = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'MANUTENÇÃO');
+        $remanejados = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA')->where('status', 'REMANEJADO');
+        $p_remanejados = Equipamentos::distinct()->select('tipo_impressora')->where('status', 'REMANEJADO')->get();
+        //
+        $secretarias = Secretarias::all()->sortBy('nome');
+        $setores = Setores::all()->sortBy('nome');
+        $users = User::all()->sortBy('id');
+
+        return view('impressoras-remanejadas', compact('impressoras', 'jato_tinta', 'laser', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'p_remanejados', 'outras_impressoras', 'secretarias', 'setores', 'users'));
     }
 
     /**

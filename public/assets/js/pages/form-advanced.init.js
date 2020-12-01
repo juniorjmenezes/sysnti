@@ -18,14 +18,8 @@
             var n = i.extend({}, t, i(e).data());
             i(e).TouchSpin(n)
         }), i("input[name='discos']").TouchSpin({
-            min: 1,
-            max: 2,
-            buttondown_class: "btn btn-primary",
-            buttonup_class: "btn btn-primary"
-        }), i("input[name='cartuchos']").TouchSpin({
-            min: 1,
-            max: 4,
-            step: 1,
+            min: 0,
+            max: 5,
             buttondown_class: "btn btn-primary",
             buttonup_class: "btn btn-primary"
         }), i("input#defaultconfig").maxlength({

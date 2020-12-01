@@ -20,22 +20,258 @@ class PerifericosController extends Controller
      */
     public function index()
     {
-        $computadores = Equipamentos::all()->where('tipo_equipamento', 'COMPUTADOR');
-        $impressoras = Equipamentos::all()->where('tipo_equipamento', 'IMPRESSORA');
-        $projetores = Equipamentos::all()->where('tipo_equipamento', 'PROJETOR');
-        $roteadores = Equipamentos::all()->where('tipo_equipamento', 'ROTEADOR');
-        $scanners = Equipamentos::all()->where('tipo_equipamento', 'SCANNER');
+        $perifericos = Perifericos::all();
         //
-        $ativos = Equipamentos::all()->where('status', 'ATIVO');
-        $inserviveis = Equipamentos::all()->where('status', 'INSERVÍVEL');
-        $manutencao = Equipamentos::all()->where('status', 'MANUTENÇÃO');
-        $remanejados = Equipamentos::all()->where('status', 'REMANEJADO');
+        $autotransformadores = Perifericos::all()->where('tipo_periferico', 'AUTOTRANSFORMADOR');
+        $estabilizadores = Perifericos::all()->where('tipo_periferico', 'ESTABILIZADOR');
+        $nobreaks = Perifericos::all()->where('tipo_periferico', 'NO-BREAK');
+        $modulos_isoladores = Perifericos::all()->where('tipo_periferico', 'MÓDULO ISOLADOR');
+        $monitores = Perifericos::all()->where('tipo_periferico', 'MONITOR');
+        $webcams = Perifericos::all()->where('tipo_periferico', 'WEBCAM');
+        //
+        $ativos = Perifericos::all()->where('status', 'ATIVO');
+        $inserviveis = Perifericos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Perifericos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Perifericos::all()->where('status', 'REMANEJADO');
         //
         $secretarias = Secretarias::all()->sortBy('nome');
         $setores = Setores::all()->sortBy('nome');
         $users = User::all()->sortBy('id');
 
-        return view('adicionar-periferico', compact('computadores', 'impressoras', 'projetores', 'roteadores', 'scanners', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'secretarias', 'setores', 'users'));
+        return view('perifericos', compact('perifericos', 'autotransformadores', 'estabilizadores', 'nobreaks', 'modulos_isoladores', 'monitores', 'webcams', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'secretarias', 'setores', 'users'));
+    }
+
+    public function autotransformadores()
+    {
+        $perifericos = Perifericos::all();
+        //
+        $autotransformadores = Perifericos::all()->where('tipo_periferico', 'AUTOTRANSFORMADOR');
+        $estabilizadores = Perifericos::all()->where('tipo_periferico', 'ESTABILIZADOR');
+        $nobreaks = Perifericos::all()->where('tipo_periferico', 'NO-BREAK');
+        $modulos_isoladores = Perifericos::all()->where('tipo_periferico', 'MÓDULO ISOLADOR');
+        $monitores = Perifericos::all()->where('tipo_periferico', 'MONITOR');
+        $webcams = Perifericos::all()->where('tipo_periferico', 'WEBCAM');
+        //
+        $ativos = Perifericos::all()->where('status', 'ATIVO');
+        $inserviveis = Perifericos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Perifericos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Perifericos::all()->where('status', 'REMANEJADO');
+        //
+        $secretarias = Secretarias::all()->sortBy('nome');
+        $setores = Setores::all()->sortBy('nome');
+        $users = User::all()->sortBy('id');
+
+        return view('autotransformadores', compact('perifericos', 'autotransformadores', 'estabilizadores', 'nobreaks', 'modulos_isoladores', 'monitores', 'webcams', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'secretarias', 'setores', 'users'));
+    }
+
+    public function estabilizadores()
+    {
+        $perifericos = Perifericos::all();
+        //
+        $autotransformadores = Perifericos::all()->where('tipo_periferico', 'AUTOTRANSFORMADOR');
+        $estabilizadores = Perifericos::all()->where('tipo_periferico', 'ESTABILIZADOR');
+        $nobreaks = Perifericos::all()->where('tipo_periferico', 'NO-BREAK');
+        $modulos_isoladores = Perifericos::all()->where('tipo_periferico', 'MÓDULO ISOLADOR');
+        $monitores = Perifericos::all()->where('tipo_periferico', 'MONITOR');
+        $webcams = Perifericos::all()->where('tipo_periferico', 'WEBCAM');
+        //
+        $ativos = Perifericos::all()->where('status', 'ATIVO');
+        $inserviveis = Perifericos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Perifericos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Perifericos::all()->where('status', 'REMANEJADO');
+        //
+        $secretarias = Secretarias::all()->sortBy('nome');
+        $setores = Setores::all()->sortBy('nome');
+        $users = User::all()->sortBy('id');
+
+        return view('estabilizadores', compact('perifericos', 'autotransformadores', 'estabilizadores', 'nobreaks', 'modulos_isoladores', 'monitores', 'webcams', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'secretarias', 'setores', 'users'));
+    }
+
+    public function nobreaks()
+    {
+        $perifericos = Perifericos::all();
+        //
+        $autotransformadores = Perifericos::all()->where('tipo_periferico', 'AUTOTRANSFORMADOR');
+        $estabilizadores = Perifericos::all()->where('tipo_periferico', 'ESTABILIZADOR');
+        $nobreaks = Perifericos::all()->where('tipo_periferico', 'NO-BREAK');
+        $modulos_isoladores = Perifericos::all()->where('tipo_periferico', 'MÓDULO ISOLADOR');
+        $monitores = Perifericos::all()->where('tipo_periferico', 'MONITOR');
+        $webcams = Perifericos::all()->where('tipo_periferico', 'WEBCAM');
+        //
+        $ativos = Perifericos::all()->where('status', 'ATIVO');
+        $inserviveis = Perifericos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Perifericos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Perifericos::all()->where('status', 'REMANEJADO');
+        //
+        $secretarias = Secretarias::all()->sortBy('nome');
+        $setores = Setores::all()->sortBy('nome');
+        $users = User::all()->sortBy('id');
+
+        return view('nobreaks', compact('perifericos', 'autotransformadores', 'estabilizadores', 'nobreaks', 'modulos_isoladores', 'monitores', 'webcams', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'secretarias', 'setores', 'users'));
+    }
+
+    public function modulos_isoladores()
+    {
+        $perifericos = Perifericos::all();
+        //
+        $autotransformadores = Perifericos::all()->where('tipo_periferico', 'AUTOTRANSFORMADOR');
+        $estabilizadores = Perifericos::all()->where('tipo_periferico', 'ESTABILIZADOR');
+        $nobreaks = Perifericos::all()->where('tipo_periferico', 'NO-BREAK');
+        $modulos_isoladores = Perifericos::all()->where('tipo_periferico', 'MÓDULO ISOLADOR');
+        $monitores = Perifericos::all()->where('tipo_periferico', 'MONITOR');
+        $webcams = Perifericos::all()->where('tipo_periferico', 'WEBCAM');
+        //
+        $ativos = Perifericos::all()->where('status', 'ATIVO');
+        $inserviveis = Perifericos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Perifericos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Perifericos::all()->where('status', 'REMANEJADO');
+        //
+        $secretarias = Secretarias::all()->sortBy('nome');
+        $setores = Setores::all()->sortBy('nome');
+        $users = User::all()->sortBy('id');
+
+        return view('modulos-isoladores', compact('perifericos', 'autotransformadores', 'estabilizadores', 'nobreaks', 'modulos_isoladores', 'monitores', 'webcams', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'secretarias', 'setores', 'users'));
+    }
+
+    public function monitores()
+    {
+        $perifericos = Perifericos::all();
+        //
+        $autotransformadores = Perifericos::all()->where('tipo_periferico', 'AUTOTRANSFORMADOR');
+        $estabilizadores = Perifericos::all()->where('tipo_periferico', 'ESTABILIZADOR');
+        $nobreaks = Perifericos::all()->where('tipo_periferico', 'NO-BREAK');
+        $modulos_isoladores = Perifericos::all()->where('tipo_periferico', 'MÓDULO ISOLADOR');
+        $monitores = Perifericos::all()->where('tipo_periferico', 'MONITOR');
+        $webcams = Perifericos::all()->where('tipo_periferico', 'WEBCAM');
+        //
+        $ativos = Perifericos::all()->where('status', 'ATIVO');
+        $inserviveis = Perifericos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Perifericos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Perifericos::all()->where('status', 'REMANEJADO');
+        //
+        $secretarias = Secretarias::all()->sortBy('nome');
+        $setores = Setores::all()->sortBy('nome');
+        $users = User::all()->sortBy('id');
+
+        return view('monitores', compact('perifericos', 'autotransformadores', 'estabilizadores', 'nobreaks', 'modulos_isoladores', 'monitores', 'webcams', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'secretarias', 'setores', 'users'));
+    }
+    public function webcams()
+    {
+        $perifericos = Perifericos::all();
+        //
+        $autotransformadores = Perifericos::all()->where('tipo_periferico', 'AUTOTRANSFORMADOR');
+        $estabilizadores = Perifericos::all()->where('tipo_periferico', 'ESTABILIZADOR');
+        $nobreaks = Perifericos::all()->where('tipo_periferico', 'NO-BREAK');
+        $modulos_isoladores = Perifericos::all()->where('tipo_periferico', 'MÓDULO ISOLADOR');
+        $monitores = Perifericos::all()->where('tipo_periferico', 'MONITOR');
+        $webcams = Perifericos::all()->where('tipo_periferico', 'WEBCAM');
+        //
+        $ativos = Perifericos::all()->where('status', 'ATIVO');
+        $inserviveis = Perifericos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Perifericos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Perifericos::all()->where('status', 'REMANEJADO');
+        //
+        $secretarias = Secretarias::all()->sortBy('nome');
+        $setores = Setores::all()->sortBy('nome');
+        $users = User::all()->sortBy('id');
+
+        return view('webcams', compact('perifericos', 'autotransformadores', 'estabilizadores', 'nobreaks', 'modulos_isoladores', 'monitores', 'webcams', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'secretarias', 'setores', 'users'));
+    }
+
+    public function ativos()
+    {
+        $perifericos = Perifericos::all();
+        //
+        $autotransformadores = Perifericos::all()->where('tipo_periferico', 'AUTOTRANSFORMADOR');
+        $estabilizadores = Perifericos::all()->where('tipo_periferico', 'ESTABILIZADOR');
+        $nobreaks = Perifericos::all()->where('tipo_periferico', 'NO-BREAK');
+        $modulos_isoladores = Perifericos::all()->where('tipo_periferico', 'MÓDULO ISOLADOR');
+        $monitores = Perifericos::all()->where('tipo_periferico', 'MONITOR');
+        $webcams = Perifericos::all()->where('tipo_periferico', 'WEBCAM');
+        //
+        $ativos = Perifericos::all()->where('status', 'ATIVO');
+        $p_ativos = Perifericos::distinct()->select('tipo_periferico')->where('status', 'ATIVO')->get();
+        $inserviveis = Perifericos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Perifericos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Perifericos::all()->where('status', 'REMANEJADO');
+        //
+        $secretarias = Secretarias::all()->sortBy('nome');
+        $setores = Setores::all()->sortBy('nome');
+        $users = User::all()->sortBy('id');
+
+        return view('perifericos-ativos', compact('perifericos', 'autotransformadores', 'estabilizadores', 'nobreaks', 'modulos_isoladores', 'monitores', 'webcams', 'ativos', 'p_ativos', 'inserviveis', 'manutencao', 'remanejados', 'secretarias', 'setores', 'users'));
+    }
+
+    public function inserviveis()
+    {
+        $perifericos = Perifericos::all();
+        //
+        $autotransformadores = Perifericos::all()->where('tipo_periferico', 'AUTOTRANSFORMADOR');
+        $estabilizadores = Perifericos::all()->where('tipo_periferico', 'ESTABILIZADOR');
+        $nobreaks = Perifericos::all()->where('tipo_periferico', 'NO-BREAK');
+        $modulos_isoladores = Perifericos::all()->where('tipo_periferico', 'MÓDULO ISOLADOR');
+        $monitores = Perifericos::all()->where('tipo_periferico', 'MONITOR');
+        $webcams = Perifericos::all()->where('tipo_periferico', 'WEBCAM');
+        //
+        $ativos = Perifericos::all()->where('status', 'ATIVO');
+        $inserviveis = Perifericos::all()->where('status', 'INSERVÍVEL');
+        $p_inserviveis = Perifericos::distinct()->select('tipo_periferico')->where('status', 'INSERVÍVEL')->get();
+        $manutencao = Perifericos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Perifericos::all()->where('status', 'REMANEJADO');
+        //
+        $secretarias = Secretarias::all()->sortBy('nome');
+        $setores = Setores::all()->sortBy('nome');
+        $users = User::all()->sortBy('id');
+
+        return view('perifericos-inserviveis', compact('perifericos', 'autotransformadores', 'estabilizadores', 'nobreaks', 'modulos_isoladores', 'monitores', 'webcams', 'ativos', 'inserviveis', 'p_inserviveis', 'manutencao', 'remanejados', 'secretarias', 'setores', 'users'));
+    }
+
+    public function manutencao()
+    {
+        $perifericos = Perifericos::all();
+        //
+        $autotransformadores = Perifericos::all()->where('tipo_periferico', 'AUTOTRANSFORMADOR');
+        $estabilizadores = Perifericos::all()->where('tipo_periferico', 'ESTABILIZADOR');
+        $nobreaks = Perifericos::all()->where('tipo_periferico', 'NO-BREAK');
+        $modulos_isoladores = Perifericos::all()->where('tipo_periferico', 'MÓDULO ISOLADOR');
+        $monitores = Perifericos::all()->where('tipo_periferico', 'MONITOR');
+        $webcams = Perifericos::all()->where('tipo_periferico', 'WEBCAM');
+        //
+        $ativos = Perifericos::all()->where('status', 'ATIVO');
+        $inserviveis = Perifericos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Perifericos::all()->where('status', 'MANUTENÇÃO');
+        $p_manutencao = Perifericos::distinct()->select('tipo_periferico')->where('status', 'MANUTENÇÃO')->get();
+        $remanejados = Perifericos::all()->where('status', 'REMANEJADO');
+        //
+        $secretarias = Secretarias::all()->sortBy('nome');
+        $setores = Setores::all()->sortBy('nome');
+        $users = User::all()->sortBy('id');
+
+        return view('perifericos-manutencao', compact('perifericos', 'autotransformadores', 'estabilizadores', 'nobreaks', 'modulos_isoladores', 'monitores', 'webcams', 'ativos', 'inserviveis', 'manutencao', 'p_manutencao', 'remanejados', 'secretarias', 'setores', 'users'));
+    }
+
+    public function remanejados()
+    {
+        $perifericos = Perifericos::all();
+        //
+        $autotransformadores = Perifericos::all()->where('tipo_periferico', 'AUTOTRANSFORMADOR');
+        $estabilizadores = Perifericos::all()->where('tipo_periferico', 'ESTABILIZADOR');
+        $nobreaks = Perifericos::all()->where('tipo_periferico', 'NO-BREAK');
+        $modulos_isoladores = Perifericos::all()->where('tipo_periferico', 'MÓDULO ISOLADOR');
+        $monitores = Perifericos::all()->where('tipo_periferico', 'MONITOR');
+        $webcams = Perifericos::all()->where('tipo_periferico', 'WEBCAM');
+        //
+        $ativos = Perifericos::all()->where('status', 'ATIVO');
+        $inserviveis = Perifericos::all()->where('status', 'INSERVÍVEL');
+        $manutencao = Perifericos::all()->where('status', 'MANUTENÇÃO');
+        $remanejados = Perifericos::all()->where('status', 'REMANEJADO');
+        $p_remanejados = Perifericos::distinct()->select('tipo_periferico')->where('status', 'REMANEJADOS')->get();
+        //
+        $secretarias = Secretarias::all()->sortBy('nome');
+        $setores = Setores::all()->sortBy('nome');
+        $users = User::all()->sortBy('id');
+
+        return view('perifericos-remanejados', compact('perifericos', 'autotransformadores', 'estabilizadores', 'nobreaks', 'modulos_isoladores', 'monitores', 'webcams', 'ativos', 'inserviveis', 'manutencao', 'remanejados', 'p_remanejados', 'secretarias', 'setores', 'users'));
     }
 
     /**

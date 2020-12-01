@@ -74,9 +74,28 @@
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title mb-4">LISTAGEM POR TIPO</h4>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h4 class="header-title mb-0">LISTAGEM POR TIPO</h4>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="mb-4 text-muted text-right">TOTAL DE PROJETORES AVULSO: <span class="text-primary">{{$avulsos->count()}}</span></p>
+                                            </div>
+                                        </div>
+                                        <div id="table-actions" class="form-group row">
+                                            <div id="global_buttons" class="col-md-6">
+                                                <button id="copy" class="btn btn-secondary buttons-html5" tabindex="0" aria-controls="datatable-equipamentos" type="button"><span><i class="fas fa-copy "></i></span></button>
+                                                <button id="excel" class="btn btn-secondary buttons-html5" tabindex="0" aria-controls="datatable-equipamentos" type="button"><span><i class="fas fa-file-excel"></i></span></button>
+                                                <button id="pdf" class="btn btn-secondary buttons-html5" tabindex="0" aria-controls="datatable-equipamentos" type="button"><span><i class="fas fa-file-pdf"></i></span></button>
+                                                <button id="print" class="btn btn-secondary" tabindex="0" aria-controls="datatable-equipamentos" type="button"><span><i class="ti-printer"></i></span></button>
+                                            </div>
+                                            <label class="col-md-2 col-form-label">Buscar Projetor</label>
+                                            <div class="col-md-4">
+                                                <input class="form-control global_filter" id="global_filter" type="text">
+                                            </div>
+                                        </div>
                                         <div class="table-responsive">
-                                            <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                            <table id="datatable-equipamentos" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">Série/Patrimônio</th>
@@ -480,10 +499,15 @@
         <script src="<?= asset('assets/libs/simplebar/simplebar.min.js'); ?>"></script>
         <!-- other menu bar -->
         <script src="<?= asset('assets/js/app.js'); ?>"></script>
-        <!-- Required DataTable js -->
+        <!-- chosen jquery -->
+        <script src="<?= asset('assets/js/chosen.jquery.js'); ?>"></script>
+        <script src="<?= asset('assets/js/pages/chosen.init.js'); ?>"></script>
+        <!-- alertify -->
+        <script src="<?= asset('assets/libs/alertifyjs/build/alertify.js'); ?>"></script>
+        <!-- Required datatable js -->
         <script src="<?= asset('assets/libs/datatables.net/js/jquery.dataTables.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js'); ?>"></script>
-        <!-- DataTable buttons -->
+        <!-- Buttons examples -->
         <script src="<?= asset('assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/jszip/jszip.min.js'); ?>"></script>
@@ -494,5 +518,19 @@
         <script src="<?= asset('assets/libs/datatables.net-buttons/js/buttons.colVis.min.js'); ?>"></script>
         <!-- Datatable init js -->
         <script src="<?= asset('assets/js/pages/datatables.init.js'); ?>"></script>
+        <script>
+            $("#copy").click(function(){
+            $(".buttons-copy").trigger('click');
+            });
+            $("#excel").click(function(){
+            $(".buttons-excel").trigger('click');
+            });
+            $("#pdf").click(function(){
+            $(".buttons-pdf").trigger('click');
+            });
+            $("#print").click(function(){
+            $(".buttons-print").trigger('click');
+            });
+        </script>
     </body>
 </html>

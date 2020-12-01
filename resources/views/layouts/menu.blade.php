@@ -53,19 +53,19 @@
 					</a>
 					<ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="{{url('computadores')}}">Computadores<span class="badge badge-pill badge-info float-right">{{ $computadores->count() }}</span></a>
+                            <a href="{{url('computadores')}}">Computadores</a>
                         </li>
                         <li>
-                            <a href="{{url('impressoras')}}">Impressoras<span class="badge badge-pill badge-info float-right">{{ $impressoras->count() }}</span></a>
+                            <a href="{{url('impressoras')}}">Impressoras</a>
                         </li>
 						<li>
-                            <a href="{{url('projetores')}}">Projetores<span class="badge badge-pill badge-info float-right">{{ $roteadores->count() }}</span></a>
+                            <a href="{{url('projetores')}}">Projetores</a>
                         </li>
 						<li>
-                            <a href="{{url('roteadores')}}">Roteadores<span class="badge badge-pill badge-info float-right">{{ $roteadores->count() }}</span></a>
+                            <a href="{{url('roteadores')}}">Roteadores</a>
                         </li>
 						<li>
-                            <a href="{{url('scanners')}}">Scanners<span class="badge badge-pill badge-info float-right">{{ $scanners->count() }}</span></a>
+                            <a href="{{url('scanners')}}">Scanners</a>
                         </li>
 					</ul>
                 </li>
@@ -76,16 +76,63 @@
 					</a>
 					<ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="{{url('equipamentos-ativos')}}">Ativos<span class="badge badge-pill badge-info float-right">{{ $ativos->count() }}</span></a>
+                            <a href="{{url('equipamentos-ativos')}}">Ativos</a>
                         </li>
                         <li>
-                            <a href="{{url('equipamentos-inserviveis')}}">Inservíveis<span class="badge badge-pill badge-info float-right">{{ $inserviveis->count() }}</span></a>
+                            <a href="{{url('equipamentos-inserviveis')}}">Inservíveis</a>
                         </li>
 						<li>
-                            <a href="{{url('equipamentos-em-manutencao')}}">Manutenção<span class="badge badge-pill badge-info float-right">{{ $manutencao->count() }}</span></a>
+                            <a href="{{url('equipamentos-em-manutencao')}}">Manutenção</a>
                         </li>
                         <li>
-                            <a href="{{url('equipamentos-remanejados')}}">Remanejados<span class="badge badge-pill badge-info float-right">{{ $remanejados->count() }}</span></a>
+                            <a href="{{url('equipamentos-remanejados')}}">Remanejados</a>
+                        </li>
+					</ul>
+                </li>
+                <li class="menu-title">Listar Periféricos</li>
+				<li>
+					<a href="javascript: void(0);" class="has-arrow waves-effect">
+					<i class="ti-desktop"></i>
+					<span>Por Tipo</span>
+					</a>
+					<ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="{{url('computadores')}}">Autotransformadores</a>
+                        </li>
+                        <li>
+                            <a href="{{url('impressoras')}}">Estabilizadores</a>
+                        </li>
+						<li>
+                            <a href="{{url('projetores')}}">No-breaks</a>
+                        </li>
+						<li>
+                            <a href="{{url('roteadores')}}">Módulos Isoladores</a>
+                        </li>
+						<li>
+                            <a href="{{url('scanners')}}">Monitores</a>
+                        </li>
+						<li>
+                            <a href="{{url('scanners')}}">Webcams</a>
+                        </li>
+					</ul>
+                </li>
+                <li>
+					<a href="javascript: void(0);" class="has-arrow waves-effect">
+					<i class="ti-clipboard"></i>
+					<span>Por Status</span>
+					</a>
+					<ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="{{url('equipamentos-ativos')}}">Ativos</a>
+                        </li>
+                        <li>
+                            <a href="{{url('equipamentos-inserviveis')}}">Inservíveis</a>
+                        </li>
+						<li>
+                            <a href="{{url('equipamentos-em-manutencao')}}">Manutenção</a>
+                        </li>
+                        <li>
+                            <a href="{{url('equipamentos-remanejados')}}">Remanejados</a>
                         </li>
 					</ul>
 				</li>

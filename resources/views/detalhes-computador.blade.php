@@ -230,7 +230,7 @@
                                                 <div class="form-group row">
                                                     <div class="col-md-12">
                                                         <div class="table-responsive">
-                                                            <table id="datatable-perifericos" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                                            <table id="datatable" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                                                 <thead>
                                                                     <tr>
                                                                         <th scope="col">Tipo</th>
@@ -820,7 +820,6 @@
         <script src="<?= asset('assets/libs/simplebar/simplebar.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/node-waves/waves.min.js'); ?>"></script>
         <script src="<?= asset('assets/js/app.js'); ?>"></script>
-        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
         <script src="<?= asset('assets/libs/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js'); ?>"></script>
@@ -836,32 +835,8 @@
         <!-- Required datatable js -->
         <script src="<?= asset('assets/libs/datatables.net/js/jquery.dataTables.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js'); ?>"></script>
-
         <!-- Datatable init js -->
-        <script>
-            var oTable = $('#datatable-perifericos').DataTable({
-                lengthChange: !1,
-                buttons: ["copy", "excel", "pdf", "print", "colvis"],
-                "bFilter": true,
-                "language": {
-                    "sSearch": "Buscar",
-                    "lengthMenu": "Display _MENU_ records per page",
-                    "zeroRecords": "Nenhum Periférico encontrado para os termos pesquisados.",
-                    "info": "Mostrando página _PAGE_ de _PAGES_",
-                    "infoEmpty": "Não há registro disponível",
-                    "infoFiltered": "(de _MAX_ total Periféricos)",
-                    "paginate": {
-                        "sNext": "Próximo",
-                        "sPrevious": "Anterior"
-                    },
-                }
-            });
-            $('#global_filter').keyup(function(){
-            oTable.search( $(this).val() ).draw();
-            })
-
-            $('#datatable-perifericos_filter').hide();
-        </script>
+        <script src="<?= asset('assets/js/pages/datatables.init.js'); ?>"></script>
         <script>
             $("#buscar-perifericos").autocomplete({
                 source: function( request, response ) {
@@ -885,6 +860,6 @@
                 return false;
                 }
             });
-            </script>
+        </script>
     </body>
 </html>

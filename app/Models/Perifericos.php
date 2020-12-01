@@ -63,7 +63,7 @@ class Perifericos extends Model
 
     public function setor()
     {
-        return $this->hasOne('App\Models\Secretarias', 'id', 'id_setor');
+        return $this->hasOne('App\Models\Setores', 'id', 'id_setor');
     }
 
 }

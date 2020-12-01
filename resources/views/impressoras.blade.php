@@ -16,7 +16,7 @@
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">SYSNTI</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Inventário</a></li>
+                                            <li class="breadcrumb-item"><a href="{{url('equipamentos')}}">Equipamentos</a></li>
                                             <li class="breadcrumb-item active">Impressoras</li>
                                         </ol>
                                     </div>
@@ -25,82 +25,60 @@
                         </div>
                         <!-- end page title -->
                         <div class="row">
-                            <div class="col-sm-6 col-xl-4">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <h5 class="font-size-14">JATO DE TINTA</h5>
-                                            </div>
-                                            <div class="avatar-xs">
-                                                <span class="rounded-circle">
-                                                    <img style="width: 100%" src="<?= asset('assets/images/icons/jato_tinta.svg'); ?>">
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <h4 class="m-0 align-self-center">{{$jato_tinta->count()}}</h4>
-                                        <p class="mb-0 mt-3 text-muted">Último Patrimônio Inserido: <span class="text-primary">@isset($ult_jato_tinta){{$ult_jato_tinta->patrimonio }} @endisset</span></p>
-                                        <div class="media-footer mt-3">
-                                            <a href="{{url('impressoras-jato-de-tinta')}}" class="btn btn-info btn-sm waves-effect waves-light">LISTAR</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6 col-xl-4">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <h5 class="font-size-14">LASER</h5>
-                                            </div>
-                                            <div class="avatar-xs">
-                                                <span class="rounded-circle">
-                                                    <img style="width: 100%" src="<?= asset('assets/images/icons/laser.svg'); ?>">
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <h4 class="m-0 align-self-center">{{$laser->count() }}</h4>
-                                        <p class="mb-0 mt-3 text-muted">Último Patrimônio Inserido: <span class="text-primary">@isset($ult_laser){{$ult_laser->patrimonio }} @endisset</span></p>
-                                        <div class="media-footer mt-3">
-                                            <a href="{{url('impressoras-laser')}}" class="btn btn-info btn-sm waves-effect waves-light">LISTAR</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6 col-xl-4">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <h5 class="font-size-14">OUTRAS IMPRESSORAS</h5>
-                                            </div>
-                                            <div class="avatar-xs">
-                                                <span class="rounded-circle">
-                                                    <img style="width: 100%" src="<?= asset('assets/images/icons/matricial.svg'); ?>">
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <h4 class="m-0 align-self-center">{{$outras_impressoras->count() }}</h4>
-                                        <p class="mb-0 mt-3 text-muted">Último Patrimônio Inserido: <span class="text-primary">@isset($ult_outras_impressoras){{ $ult_outras_impressoras->patrimonio }} @endisset</span></p>
-                                        <div class="media-footer mt-3">
-                                            <a href="{{url('outras-impressoras')}}" class="btn btn-info btn-sm waves-effect waves-light">LISTAR</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title mb-4">LISTAGEM GERAL</h4>
-
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h4 class="header-title mb-0">LISTAGEM GERAL</h4>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="mb-4 text-muted text-right">TOTAL DE IMPRESSORAS: <span class="text-primary">{{$impressoras->count()}}</span></p>
+                                            </div>
+                                        </div>
+                                        <div id="table-actions" class="form-group row">
+                                            <div class="col-md-3">
+                                                <button id="back" class="btn btn-success buttons-html5" tabindex="0" type="button" onclick="history.go(-1)"><span><i class="fas fa-arrow-alt-circle-left"></i></span></button>
+                                                <button id="copy" class="btn btn-secondary buttons-html5" tabindex="0" aria-controls="datatable-perifericos" type="button"><span><i class="fas fa-copy "></i></span></button>
+                                                <button id="excel" class="btn btn-secondary buttons-html5" tabindex="0" aria-controls="datatable-perifericos" type="button"><span><i class="fas fa-file-excel"></i></span></button>
+                                                <button id="pdf" class="btn btn-secondary buttons-html5" tabindex="0" aria-controls="datatable-perifericos" type="button"><span><i class="fas fa-file-pdf"></i></span></button>
+                                                <button id="print" class="btn btn-secondary" tabindex="0" aria-controls="datatable-perifericos" type="button"><span><i class="ti-printer"></i></span></button>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="btn-group">
+                                                    <div class="dropdown mt-3 mr-1 mt-sm-0">
+                                                        <a class="btn btn-info dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            LISTAR POR TIPO <i class="mdi mdi-chevron-down"></i>
+                                                        </a>
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                            <a class="dropdown-item mr-5" href="{{url('impressoras/jato-de-tinta')}}">JATO DE TINTA<span class="badge badge-pill badge-secondary float-right mt-1">{{$jato_tinta->count()}}</span></a>
+                                                            <a class="dropdown-item mr-5" href="{{url('impressoras/laser')}}">LASER<span class="badge badge-pill badge-secondary float-right mt-1">{{$laser->count()}}</span></a>
+                                                            <a class="dropdown-item mr-5" href="{{url('impressoras/outras-impressoras')}}">OUTRAS IMPRESSORAS<span class="badge badge-pill badge-secondary float-right mt-1">{{$outras_impressoras->count()}}</span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="dropdown mt-3 mr-1 mt-sm-0">
+                                                        <a class="btn btn-warning dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            LISTAR POR STATUS <i class="mdi mdi-chevron-down"></i>
+                                                        </a>
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                            <a class="dropdown-item mr-5" href="{{url('impressoras/ativas')}}">ATIVAS<span class="badge badge-pill badge-success float-right mt-1">{{$ativos->count()}}</span></a>
+                                                            <a class="dropdown-item mr-5" href="{{url('impressoras/inserviveis')}}">INSERVÍVEIS<span class="badge badge-pill badge-secondary float-right mt-1">{{$inserviveis->count()}}</span></a>
+                                                            <a class="dropdown-item mr-5" href="{{url('impressoras/em-manutencao')}}">MANUTENÇÃO<span class="badge badge-pill badge-danger float-right mt-1">{{$manutencao->count()}}</span></a>
+                                                            <a class="dropdown-item mr-5" href="{{url('impressoras/remanejadas')}}">REMANEJADAS<span class="badge badge-pill badge-primary float-right mt-1">{{$remanejados->count()}}</span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mt-3 mt-sm-0">
+                                                        <button id="filter" class="btn btn-secondary buttons-html5" tabindex="0" type="button" data-toggle="modal" data-target=".bs-example-modal-sm"><span><i class="fas fa-filter"></i></span></button>
+                                                    </div>
+                                                </div><!-- /btn-group -->
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input class="form-control global_filter" id="global_filter" type="text" placeholder="Filtrar...">
+                                            </div>
+                                        </div>
+                                        @include('modals.filtros-e')
                                         <div class="table-responsive">
-                                            <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                            <table id="datatable-equipamentos" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">Tipo</th>
@@ -162,12 +140,9 @@
                             </div>
                         </div>
                         <!-- end row -->
-
                     </div> <!-- container-fluid -->
                 </div>
                 <!-- End Page-content -->
-
-
                 <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
@@ -184,14 +159,11 @@
                 </footer>
             </div>
             <!-- end main content-->
-
         </div>
         <!-- END layout-wrapper -->
-
         <!-- Right Sidebar -->
         <div class="right-bar">
             <div data-simplebar class="h-100">
-
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs nav-tabs-custom rightbar-nav-tab nav-justified" role="tablist">
                     <li class="nav-item">
@@ -211,7 +183,6 @@
                         </a>
                     </li>
                 </ul>
-
                 <!-- Tab panes -->
                 <div class="tab-content text-muted">
                     <div class="tab-pane active" id="chat-tab" role="tabpanel">
@@ -222,9 +193,7 @@
                                 <span class="mdi mdi-magnify"></span>
                             </div>
                         </form>
-
                         <h6 class="font-weight-medium px-4 mt-2 text-uppercase">Group Chats</h6>
-
                         <div class="p-2">
                             <a href="javascript: void(0);" class="text-reset notification-item pl-3 mb-2 d-block">
                                 <i class="mdi mdi-checkbox-blank-circle-outline mr-1 text-success"></i>
@@ -246,9 +215,7 @@
                                 <span class="mb-0 mt-1">Freelance</span>
                             </a>
                         </div>
-
                         <h6 class="font-weight-medium px-4 mt-4 text-uppercase">Favourites</h6>
-
                         <div class="p-2">
                             <a href="javascript: void(0);" class="text-reset notification-item">
                                 <div class="media">
@@ -506,22 +473,16 @@
         <!-- JAVASCRIPT -->
         <script src="<?= asset('assets/libs/jquery/jquery.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+        <!-- side menu -->
         <script src="<?= asset('assets/libs/metismenu/metisMenu.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/simplebar/simplebar.min.js'); ?>"></script>
-        <script src="<?= asset('assets/libs/node-waves/waves.min.js'); ?>"></script>
-
-        <!-- apexcharts -->
-        <script src="<?= asset('assets/libs/apexcharts/apexcharts.min.js'); ?>"></script>
-
-        <script src="<?= asset('assets/libs/slick-slider/slick/slick.min.js'); ?>"></script>
-
-        <!-- Jq vector map -->
-        <script src="<?= asset('assets/libs/jqvmap/jquery.vmap.min.js'); ?>"></script>
-        <script src="<?= asset('assets/libs/jqvmap/maps/jquery.vmap.usa.js'); ?>"></script>
-
-        <script src="<?= asset('assets/js/pages/dashboard.init.js'); ?>"></script>
-
+        <!-- other menu bar -->
         <script src="<?= asset('assets/js/app.js'); ?>"></script>
+        <!-- chosen jquery -->
+        <script src="<?= asset('assets/js/chosen.jquery.js'); ?>"></script>
+        <script src="<?= asset('assets/js/pages/chosen.init.js'); ?>"></script>
+        <!-- alertify -->
+        <script src="<?= asset('assets/libs/alertifyjs/build/alertify.js'); ?>"></script>
         <!-- Required datatable js -->
         <script src="<?= asset('assets/libs/datatables.net/js/jquery.dataTables.min.js'); ?>"></script>
         <script src="<?= asset('assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js'); ?>"></script>
@@ -536,6 +497,19 @@
         <script src="<?= asset('assets/libs/datatables.net-buttons/js/buttons.colVis.min.js'); ?>"></script>
         <!-- Datatable init js -->
         <script src="<?= asset('assets/js/pages/datatables.init.js'); ?>"></script>
-
+        <script>
+            $("#copy").click(function(){
+            $(".buttons-copy").trigger('click');
+            });
+            $("#excel").click(function(){
+            $(".buttons-excel").trigger('click');
+            });
+            $("#pdf").click(function(){
+            $(".buttons-pdf").trigger('click');
+            });
+            $("#print").click(function(){
+            $(".buttons-print").trigger('click');
+            });
+        </script>
     </body>
 </html>

@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="pt-br">
-
     <head>
         <meta charset="utf-8" />
         <title>SYSNTI</title>
@@ -38,7 +37,6 @@
     </head>
 
     <body data-sidebar="dark">
-
         <!-- Begin page -->
         <div id="layout-wrapper">
 
@@ -233,9 +231,8 @@
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="<?= asset('assets/images/users/avatar-1.jpg'); ?>"
-                                    alt="Header Avatar">
-                                <span class="d-none d-sm-inline-block ml-1">Shane</span>
+                                <img class="rounded-circle header-profile-user" src="<?= asset('assets/images/users/avatar-1.jpg'); ?>" alt="Header Avatar">
+                                <span class="d-none d-sm-inline-block ml-1">{{Auth::user()->name}}</span>
                                 <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-right">
@@ -245,7 +242,7 @@
                                 <a class="dropdown-item" href="#"><i class="mdi mdi-account-settings font-size-16 align-middle mr-1"></i> Settings</a>
                                 <a class="dropdown-item" href="#"><i class="mdi mdi-lock font-size-16 align-middle mr-1"></i> Lock screen</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> Logout</a>
+                            <a class="dropdown-item" href="{{route('logout')}}"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> Logout</a>
                             </div>
                         </div>
 
